@@ -1,0 +1,8 @@
+theme: jekyll-theme-midnight
+title: "FRQ Frontend"
+description: "Demonstrating Java Backend via Github Pages"
+gitorg: "https://github.com/AD1616/FRQ-Frontend"
+date: "June 26 to July 1 2023"
+google_analytics:
+url: http://127.0.0.1:4000
+baseurl: 
