@@ -36,7 +36,7 @@ button {
 
 #cover {
   position: absolute;
-  top: 80%;
+  top: 50%;
   left: 0;
   right: 0;
   width: 550px;
