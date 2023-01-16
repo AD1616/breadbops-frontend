@@ -6,7 +6,9 @@
 $red: #ad1616;
 $white: rgb(254, 254, 254);
 
-
+* {
+  text-decoration: "none";
+}
 /* "row style" is flexible size and aligns pictures in center */
 .row {
   align-items: center;
@@ -21,7 +23,7 @@ $white: rgb(254, 254, 254);
 
 body {
   text-align: center;
-  color: $white;
+  color: $red;
 }
 
 h1 {
@@ -32,3 +34,4 @@ h1 {
 customHead {
   font-size: 3em;
 }
+

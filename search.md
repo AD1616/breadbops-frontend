@@ -1,5 +1,43 @@
-
 <body>
+  <table id="filters">
+    <tr>
+      <th>Model Year</th>
+      <th>Price</th>
+      <th>State</th>
+    </tr>
+    <form action="#">
+      <tr>
+        <td>
+          <input type="checkbox" id="year1" name="year1" value="year1">
+          <label for="year1">Oldest - Newest</label>
+        </td>
+        <td> 
+          <input type="checkbox" id="price1" name="price1" value="price1">
+          <label for="price1">Lowest - Highest</label>
+        </td>
+        <td>
+          <input type="checkbox" id="state1" name="state1" value="state1">
+          <label for="state1">Used</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" id="year2" name="year2" value="year2">
+          <label for="year2">Newest - Oldest</label>
+        </td>
+        <td> 
+          <input type="checkbox" id="price2" name="price2" value="price2">
+          <label for="price2">Highest - Lowest</label>
+        </td>
+        <td>
+          <input type="checkbox" id="state2" name="state2" value="state2">
+          <label for="state2">New</label>
+        </td>
+      </tr>
+      <input type="submit" value="Apply Filters">
+    </form>
+  </table>
+
   <div id="cover">
     <form method="get">
       <div class="table">
@@ -21,6 +59,8 @@
   </ol>
 </body>
 
+
+
 <link rel="stylesheet" href="css/style.css">
 
 <script>
@@ -39,8 +79,11 @@ for (i=0; i < data["cars"].length; i++) {
   console.log(data["cars"][i]["name"]);
 
   var li = document.createElement('li');
+  var a = document.createElement('a');
+  a.setAttribute('href', '#');
+  a.innerHTML = data["cars"][i]["name"];
+  li.appendChild(a);
   li.setAttribute('class', 'cars');
-  li.innerHTML = data["cars"][i]["name"];
 
   carsDisplay.appendChild(li);
 }
@@ -67,11 +110,26 @@ function search_car() {
   outline: none;
 }
 
+
+
 #list{
-  font-size:  1em;
   position: relative;
-  top: 100px;
+  top: 100px; 
   color: #ad1616;
+}
+
+#list li a {
+  border: 1px solid #ddd; 
+  margin-top: -1px; 
+  background-color: #f6f6f6; 
+  padding: 12px; 
+  text-decoration: none; 
+  font-size: 18px; 
+  display: block; 
+}
+
+#list li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
 
 .cars{
@@ -94,7 +152,10 @@ body {
   width: 100%;
 }
 
-.td {
+#filters tr:hover {background-color: #D6EEEE;}
+
+
+.td { 
   display: table-cell;
   vertical-align: middle;
 }
@@ -224,5 +285,7 @@ button span:after {
   width: 40px;
   background-color: #000000;
 }
+
+
 
 </style>
