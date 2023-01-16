@@ -3,6 +3,6 @@ plugins:
 - jekyll-remote-theme
 title: "Breadbops"
 description: "A website for all your car needs"
-gitorg: "https://github.com/AD1616/FRQ-Frontend"
+gitorg: "https://github.com/AD1616/breadbops-frontend"
 url: http://127.0.0.1:4000
 baseurl: 
