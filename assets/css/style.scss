@@ -3,8 +3,10 @@
 
 @import "{{ site.theme }}";
 
-$red:rgba(236, 31, 31, 0.915);
+$red: #ad1616;
 $white: rgb(254, 254, 254);
+
+
 
 /* "row style" is flexible size and aligns pictures in center */
 .row {
@@ -25,5 +27,9 @@ body {
 
 h1 {
   text-align: center;
-  color: $red;
+  color: $red;  
+}
+
+customHead {
+  font-size: 3em;
 }

@@ -1,7 +1,82 @@
+
+<body>
+  <div id="cover">
+    <form method="get">
+      <div class="table">
+        <div class="td">
+          <input id="searchbar" onkeyup="search_car()" type="text" placeholder="Search" required>
+        </div>
+        <div class="td" id="s-cover">
+          <button onclick="search_car()" type="submit">
+            <div id="s-circle"></div>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <ol id='list'>
+
+  </ol>
+</body>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script>
+
+let text = '{ "cars" : [' + 
+  '{ "name":"Honda Odyssey" },' + 
+  '{ "name":"Tesla Model 3" },' +
+  '{ "name":"Toyota Prius" },' +
+  '{ "name":"Honda Civic" } ]}'
+
+const data = JSON.parse(text);
+
+let carsDisplay = document.getElementById("list");
+
+for (i=0; i < data["cars"].length; i++) {
+  console.log(data["cars"][i]["name"]);
+
+  var li = document.createElement('li');
+  li.setAttribute('class', 'cars');
+  li.innerHTML = data["cars"][i]["name"];
+
+  carsDisplay.appendChild(li);
+}
+
+function search_car() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('cars');
+    
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";    
+        }
+    }
+}
+</script>
+
 <style>
 * {
   outline: none;
 }
+
+#list{
+  font-size:  1em;
+  position: relative;
+  top: 100px;
+  color: #ad1616;
+}
+
+.cars{
+   display: list-item;    
+} 
 
 html,
 body {
@@ -14,7 +89,7 @@ body {
   background-color: #ad1616;
 }
 
-.tb {
+.table {
   display: table;
   width: 100%;
 }
@@ -26,7 +101,7 @@ body {
 
 input,
 button {
-  color: #fff;
+  color: #ad1616;
   font-family: Verdana;
   padding: 0;
   margin: 0;
@@ -35,8 +110,8 @@ button {
 }
 
 #cover {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 80px;
   left: 0;
   right: 0;
   width: 550px;
@@ -60,7 +135,7 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-  color: #e16868;
+  color: #ad1616;
 }
 
 #s-cover {
@@ -84,7 +159,7 @@ button {
   height: 43px;
   margin-top: 0;
   border-width: 15px;
-  border: 15px solid #fff;
+  border: 15px solid #000000;
   background-color: transparent;
   border-radius: 50%;
   transition: 0.5s ease all;
@@ -111,7 +186,7 @@ button span:after {
   right: 0;
   width: 45px;
   height: 15px;
-  background-color: #fff;
+  background-color: #000000;
   border-radius: 10px;
   transform: rotateZ(0);
   transition: 0.5s ease all;
@@ -122,7 +197,7 @@ button span:after {
   width: 67px;
   height: 15px;
   border-width: 0;
-  background-color: #fff;
+  background-color: #000000;
   border-radius: 20px;
 }
 
@@ -147,21 +222,7 @@ button span:after {
 #s-cover:hover button span:after {
   right: -6px;
   width: 40px;
-  background-color: #fff;
+  background-color: #000000;
 }
 
 </style>
-
-<div id="cover">
-  <form method="get" action="">
-    <div class="tb">
-      <div class="td"><input type="text" placeholder="Search" required></div>
-      <div class="td" id="s-cover">
-        <button type="submit">
-          <div id="s-circle"></div>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
