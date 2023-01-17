@@ -3,7 +3,7 @@ Breadbops is dedicated to delivering the best service to our customers.
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
 <h2 id="fh2">LEAVE US A REVIEW!</h2>
-<h6 id="fh6">Your review will help improve our services.</h6>
+<h6 id="fh6">Your review will help improve our services for customers like you in the future.</h6>
 
 
 <form id="feedback" action="">
