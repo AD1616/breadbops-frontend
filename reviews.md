@@ -1,19 +1,19 @@
-We are going to do reviews here, possibly both on the website and on cars.
+Breadbops is dedicated to delivering the best service to our customers.
 
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
-<h2 id="fh2">WE APPRECIATE YOUR REVIEW!</h2>
-<h6 id="fh6">Your review will help us to improve our web hosting quality products, and customer services.</h6>
+<h2 id="fh2">LEAVE US A REVIEW!</h2>
+<h6 id="fh6">Your review will help improve our services.</h6>
 
 
 <form id="feedback" action="">
-  <div class="pinfo">Your personal info</div>
+  <div class="pinfo">Personal Information</div>
   
 <div class="form-group">
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-user"></i></span>
-  <input  name="name" placeholder="John Doe" class="form-control"  type="text">
+  <input  name="name" placeholder="First and Last Name" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -22,7 +22,7 @@ We are going to do reviews here, possibly both on the website and on cars.
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-    <input name="email" type="email" class="form-control" placeholder="john.doe@yahoo.com">
+    <input name="email" type="email" class="form-control" placeholder="Email">
      </div>
   </div>
 </div>
@@ -30,8 +30,8 @@ We are going to do reviews here, possibly both on the website and on cars.
 <div class="form-group">
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-  <input  name="URL" placeholder="https://google.com" class="form-control"  type="url">
+  <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+  <input  name="phone" placeholder="Phone Number" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@ We are going to do reviews here, possibly both on the website and on cars.
   </div>
 </div>
 
- <div class="pinfo">Write your feedback.</div>
+ <div class="pinfo">Write some feedback for us.</div>
   
 
 <div class="form-group">
