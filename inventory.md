@@ -1,15 +1,4 @@
-<!-- # inventory
 
-# color to use: #6b7f94
-
-<!DOCTYPE html>
-<html>
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
-<body> -->
 
 <table class="tftable" border="1">
 
