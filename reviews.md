@@ -2,7 +2,7 @@ Breadbops is dedicated to delivering the best service to our customers.
 
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
-<h2 id="fh2">LEAVE US A REVIEW OR WRITE US A COMMENT!</h2>
+<h2 id="fh2">LEAVE BREADBOPS A REVIEW OR WRITE A COMMENT!</h2>
 <h6 id="fh6">Your review will help improve our services for customers like you in the future.</h6>
 
 
@@ -160,6 +160,7 @@ Breadbops is dedicated to delivering the best service to our customers.
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
 
+
 .form-control::-ms-expand {
   background-color: transparent;
   border: 0;
@@ -174,22 +175,22 @@ Breadbops is dedicated to delivering the best service to our customers.
 
 .form-control::-webkit-input-placeholder {
   color: #F34949;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .form-control::-moz-placeholder {
   color: brown;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .form-control:-ms-input-placeholder {
   color: blue;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .form-control::placeholder {
-  color: white;
-  opacity: 1;
+  color: grey;
+  opacity: 0.5;
 }
 
 .form-control:disabled, .form-control[readonly] {
