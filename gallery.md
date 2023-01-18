@@ -24,7 +24,7 @@
     }
     div img:hover {
         /* filter: grayscale(1); */
-        transform: scale(1.03);
+        transform: scale(1.1);
     }
     .text { 
     position: relative; 
@@ -68,10 +68,7 @@
 </div>
 
 
-
-
-
-
+<!-- plans for backend: easy to add new images + links -->
 
 
 
