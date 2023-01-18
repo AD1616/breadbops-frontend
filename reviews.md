@@ -3,8 +3,6 @@ Breadbops is dedicated to delivering the best service to our customers.
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
 <h2 id="fh2">LEAVE BREADBOPS A REVIEW OR WRITE A COMMENT!</h2>
-<h6 id="fh6">Your review will help improve our services for customers like you in the future.</h6>
-
 
 <form id="feedback" action="">
   <div class="pinfo">Personal Information</div>
@@ -68,7 +66,7 @@ Breadbops is dedicated to delivering the best service to our customers.
   </div>
 </div>
 
- <button type="submit" class="btn btn-primary">Submit</button>
+ <button type="submit" class="btn btn-primary" style="background-color:#ad1616">Submit</button>
 
 
 </form>
@@ -103,7 +101,7 @@ Breadbops is dedicated to delivering the best service to our customers.
 
 #fh2{
  padding: 2px 15px;
- color: #ff4d4d;
+ color: #ad1616;
  text-align: center;
  
  
@@ -115,19 +113,6 @@ Breadbops is dedicated to delivering the best service to our customers.
   }
 }
 
-
-#fh6 {
- padding: 2px 15px;
- color: #4d0er;
- text-align: center;
- font-weight: normal;
-}
-
-@media (max-width: 400px) {
-  #fh6{
-    font-size: 12px;
-  }
-}
 
 .pinfo {
  margin: 8px auto;
@@ -160,7 +145,6 @@ Breadbops is dedicated to delivering the best service to our customers.
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
 
-
 .form-control::-ms-expand {
   background-color: transparent;
   border: 0;
@@ -174,23 +158,23 @@ Breadbops is dedicated to delivering the best service to our customers.
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #F34949;
-  opacity: 0.5;
+  color: grey;
+  opacity: 0.3;
 }
 
 .form-control::-moz-placeholder {
   color: brown;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .form-control:-ms-input-placeholder {
   color: blue;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .form-control::placeholder {
   color: grey;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .form-control:disabled, .form-control[readonly] {
@@ -367,7 +351,7 @@ select.form-control:focus::-ms-value {
 
 .btn.disabled, .btn:disabled {
   cursor: not-allowed;
-  opacity: .65;
+  opacity: .3;
 }
 
 .btn:active, .btn.active {
