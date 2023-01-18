@@ -29,13 +29,14 @@
     .text { 
     background-color:#000000;
     position: relative; 
-    top: 50%; 
+    top: 50; 
     left: 50%; 
     transform: translate(120px, -295px); 
     color: white; 
     font-size: 24px; 
     text-align: center; 
     visibility: hidden; 
+    /* height: 200px; */
   } 
  
   /* Show the text on hover */ 
