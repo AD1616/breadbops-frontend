@@ -27,11 +27,12 @@
         transform: scale(1.1);
     }
     .text { 
+    background-color:#000000;
     position: relative; 
     top: 50%; 
     left: 50%; 
-    transform: translate(-50%, -50%); 
-    color: black; 
+    transform: translate(120px, -295px); 
+    color: white; 
     font-size: 24px; 
     text-align: center; 
     visibility: hidden; 
