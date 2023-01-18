@@ -2,7 +2,7 @@ Breadbops is dedicated to delivering the best service to our customers.
 
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
-<h2 id="fh2">LEAVE US A REVIEW!</h2>
+<h2 id="fh2">LEAVE US A REVIEW OR WRITE US A COMMENT!</h2>
 <h6 id="fh6">Your review will help improve our services for customers like you in the future.</h6>
 
 
@@ -36,7 +36,7 @@ Breadbops is dedicated to delivering the best service to our customers.
   </div>
 </div>
 
- <div class="pinfo">Rate our overall services.</div>
+ <div class="pinfo">Rate our overall services</div>
   
 
 <div class="form-group">
@@ -44,6 +44,7 @@ Breadbops is dedicated to delivering the best service to our customers.
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-heart"></i></span>
    <select class="form-control" id="rate">
+      <option value="N/A">N/A</option>
       <option value="1star">1</option>
       <option value="2stars">2</option>
       <option value="3stars">3</option>
@@ -54,7 +55,7 @@ Breadbops is dedicated to delivering the best service to our customers.
   </div>
 </div>
 
- <div class="pinfo">Write some feedback for us.</div>
+ <div class="pinfo">Write feedback or comments that you have here</div>
   
 
 <div class="form-group">
@@ -63,7 +64,7 @@ Breadbops is dedicated to delivering the best service to our customers.
   <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
   <textarea class="form-control" id="review" rows="3"></textarea>
  
-    </div>
+  </div>
   </div>
 </div>
 
