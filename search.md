@@ -144,7 +144,6 @@ body {
 
 body {
   margin: 0;
-  background-color: #ad1616;
 }
 
 .table {
