@@ -1,8 +1,8 @@
-Breadbops is dedicated to delivering the best service to our customers.
+Gama Motors is dedicated to delivering the best service to our customers.
 
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
-<h2 id="fh2">LEAVE BREADBOPS A REVIEW OR WRITE A COMMENT!</h2>
+<h2 id="fh2">Leave Gama Motors A Review Or Write A Comment!</h2>
 
 <form id="feedback" action="">
   <div class="pinfo">Personal Information</div>
