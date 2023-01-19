@@ -39,8 +39,8 @@
     <td><input type="text" id="year"></td>
     <td><input type="text" id="price"></td>
     <td><button onclick="addCar()">Add Car</button></td>
-    <td><button onclick="addCar()">Delete Car</button></td>
-    <td><button onclick="addCar()">Edit Car</button></td>
+    <td><button onclick="deleteCar()">Delete Car</button></td>
+    <td><button onclick="editCar()">Edit Car</button></td>
   </tr>
 </table>
 
@@ -63,6 +63,8 @@ function addCar() {
   yearCell.innerHTML = year;
   priceCell.innerHTML = price;
 }
+function deleteCar() {}
+function editCar() {}
 </script>
 
 <!-- https://learn.shayhowe.com/html-css/organizing-data-with-tables/ -->
