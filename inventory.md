@@ -1,26 +1,16 @@
 
 <style>
-/* .center {
-  margin-left: auto;
-  margin-right: auto;
-} */
-
-
-
 #inventory tr:hover {background-color: #ddd;}
 #inventory tr:nth-child(odd){background-color: #aaa;}
-
-
-
 </style>
 
 <table id="inventory" class="center" style="width:100%">
-  <tr style="width:60%">
-    <th style="width:40%">Make</th>
-    <th style="width:40%">Model</th>
-    <th style="width:40%">Year</th>
-    <th style="width:40%">Price</th>
-    <th style="width:40%">Action</th>
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Price</th>
+    <th>Action</th>
   </tr>
 
   <tr>
