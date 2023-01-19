@@ -39,6 +39,8 @@
     <td><input type="text" id="year"></td>
     <td><input type="text" id="price"></td>
     <td><button onclick="addCar()">Add Car</button></td>
+    <td><button onclick="addCar()">Delete Car</button></td>
+    <td><button onclick="addCar()">Edit Car</button></td>
   </tr>
 </table>
 
