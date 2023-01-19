@@ -62,3 +62,5 @@ function addCar() {
   priceCell.innerHTML = price;
 }
 </script>
+
+<!-- https://learn.shayhowe.com/html-css/organizing-data-with-tables/ -->
