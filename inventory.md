@@ -2,6 +2,7 @@
 <style>
 #inventory tr:hover {background-color: #ddd;}
 #inventory tr:nth-child(odd){background-color: #aaa;}
+
 </style>
 
 <table id="inventory" class="center" style="width:100%">
