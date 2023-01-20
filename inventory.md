@@ -11,7 +11,10 @@
     <th>Model</th>
     <th>Year</th>
     <th>Price</th>
-    <th>Action</th>
+    <th>Image</th>
+    <th>Add Car</th>
+    <th>Delete Car</th>
+    <th>Edit Car</th>
   </tr>
 
   <tr>
@@ -38,6 +41,7 @@
     <td><input type="text" id="model"></td>
     <td><input type="text" id="year"></td>
     <td><input type="text" id="price"></td>
+    <td><button onclick="editCar()">Upload Image</button></td>
     <td><button onclick="addCar()">Add Car</button></td>
     <td><button onclick="deleteCar()">Delete Car</button></td>
     <td><button onclick="editCar()">Edit Car</button></td>
