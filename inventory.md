@@ -1,36 +1,74 @@
-# inventory
 
-# color to use: #6b7f94
-
-<!DOCTYPE html>
-<html>
 <style>
-table, th, td {
-  border:1px solid black;
-}
+#inventory tr:hover {background-color: #ddd;}
+#inventory tr:nth-child(odd){background-color: #aaa;}
+
 </style>
-<body>
 
-<h2>A basic HTML table</h2>
-
-<table style="width:100%">
+<table id="inventory" class="center" style="width:100%">
   <tr>
-    <th>Brand</th>
+    <th>Make</th>
     <th>Model</th>
-    <th>MPG</th>
+    <th>Year</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Add Car</th>
+    <th>Delete Car</th>
+    <th>Edit Car</th>
+  </tr>
+
+  <tr>
+    <td>Toyota</td>
+    <td>Camry</td>
+    <td>2020</td>
+    <td>$25,000</td>
   </tr>
   <tr>
     <td>Honda</td>
-    <td>Toyota</td>
-    <td>Audi</td>
+    <td>Accord</td>
+    <td>2019</td>
+    <td>$22,000</td>
   </tr>
   <tr>
-    <td>something</td>
-    <td>something</td>
-    <td>something</td>
+    <td>Ford</td>
+    <td>Mustang</td>
+    <td>2018</td>
+    <td>$35,000</td>
+  </tr>
+
+  <tr>
+    <td><input type="text" id="make"></td>
+    <td><input type="text" id="model"></td>
+    <td><input type="text" id="year"></td>
+    <td><input type="text" id="price"></td>
+    <td><button onclick="editCar()">Upload Image</button></td>
+    <td><button onclick="addCar()">Add Car</button></td>
+    <td><button onclick="deleteCar()">Delete Car</button></td>
+    <td><button onclick="editCar()">Edit Car</button></td>
   </tr>
 </table>
 
-</body>
-</html>
+<script>
+function addCar() {
+  var make = document.getElementById("make").value;
+  var model = document.getElementById("model").value;
+  var year = document.getElementById("year").value;
+  var price = document.getElementById("price").value;
+  
+  var table = document.getElementsByTagName("table")[0];
+  var newRow = table.insertRow();
+  var makeCell = newRow.insertCell();
+  var modelCell = newRow.insertCell();
+  var yearCell = newRow.insertCell();
+  var priceCell = newRow.insertCell();
+  
+  makeCell.innerHTML = make;
+  modelCell.innerHTML = model;
+  yearCell.innerHTML = year;
+  priceCell.innerHTML = price;
+}
+function deleteCar() {}
+function editCar() {}
+</script>
 
+<!-- https://learn.shayhowe.com/html-css/organizing-data-with-tables/ -->
