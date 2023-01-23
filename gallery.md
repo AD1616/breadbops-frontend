@@ -24,7 +24,7 @@
     }
     div img:hover {
         /* filter: grayscale(1); */
-        transform: scale(1.1);
+        transform: scale(1.4);
     }
     .text { 
     background-color:#000000;
