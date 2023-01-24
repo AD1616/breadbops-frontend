@@ -5,14 +5,22 @@
         height:auto;
         width:100%;
     }
-    column-width:auto;
-    div {
+
+    .inner {
+        width: 80%;
+    }
+
+    .row {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
     }
+
+
     div img{
+        height:auto;
+        width:200px;
         /* width: 400px;
         height: 300px; */
         /* border: 2px solid brown;
@@ -24,7 +32,7 @@
     }
     div img:hover {
         /* filter: grayscale(1); */
-        transform: scale(1.4);
+        transform: scale(1.1);
     }
     .text { 
     background-color:#000000;
@@ -46,32 +54,29 @@
 </style>
 <div class="container-fluid">
 <div class="row">
- <div class="column">
-            <img src="assets/images/2002sc430.png">
-            <div class="text">2002 Lexus SC430</div> 
-            <img src="assets/images/2005tacoma.png">
-            <div class="text">2005 Toyota Tacoma</div> 
-
- </div>
-<div class="column">
-            <img src="assets/images/2007silverado.png">
-            <div class="text">2007 Chevrolet Silverado</div> 
-            <img src="assets/images/2008sienna.png">
-            <div class="text">2008 Toyota Sienna</div> 
-</div>
-<div class="column">
-            <img src="assets/images/2007silverado.png">
-            <div class="text">2007 Chevrolet Silverado</div> 
-            <img src="assets/images/2008sienna.png">
-            <div class="text">2008 Toyota Sienna</div> 
-
-</div>
+    <div class="column">
+                <img src="assets/images/2002sc430.png">
+                <div class="text">2002 Lexus SC430</div> 
+                <img src="assets/images/2005tacoma.png">
+                <div class="text">2005 Toyota Tacoma</div> 
+    </div>
+    <div class="column">
+                <img src="assets/images/2007silverado.png">
+                <div class="text">2007 Chevrolet Silverado</div> 
+                <img src="assets/images/2008sienna.png">
+                <div class="text">2008 Toyota Sienna</div> 
+    </div>
+    <div class="column">
+                <img src="assets/images/2007silverado.png">
+                <div class="text">2007 Chevrolet Silverado</div> 
+                <img src="assets/images/2008sienna.png">
+                <div class="text">2008 Toyota Sienna</div> 
+    </div>
 </div>
 </div>
 
 
 <!-- plans for backend: easy to add new images + links -->
-
 
 
 
