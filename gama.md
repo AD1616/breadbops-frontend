@@ -19,8 +19,14 @@ label {
 }
 </style>
 
-
-<label for="inputCarName">Input Car Name</label><br>
+<label for="inputCarName">Input Car Name</label>
 <input type="text" name="inputCarName" autocomplete="off" />
-<button onclick="carName()" type="submit">Submit</button>
 
+
+<label for="img">Upload Image</label>
+<input type="file" id="img" name="img" accept="image/*">
+ 
+<label for="carDescription">Enter a Description of the Car</label>
+<textarea id="carDescription" name="carDescription" rows="4" cols="50">
+Enter description here...
+</textarea>
