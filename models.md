@@ -17,7 +17,18 @@ input[type=text] {
 input[type=text]:focus {
   width: 50%;
 }
-
+.button {
+  background-color: #AD1616;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 
 
@@ -74,7 +85,7 @@ const table = document.getElementById('idk');
 
 <input type="text" name="search" id="inputBrand" placeholder="Brand">
 <input type="text" name="search" id="inputYear" placeholder="Year">
-<button class="hvr-shutter-out-horizontal" id= "button" onclick="isLeapYear(getBrand(), getYear())">Go</button>
+<button class="button" id= "button" onclick="isLeapYear(getBrand(), getYear())">Go</button>
 <table id="idk"></table>
 
 </body>
