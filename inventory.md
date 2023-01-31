@@ -18,25 +18,6 @@
   </tr>
 
   <tr>
-    <td>Toyota</td>
-    <td>Camry</td>
-    <td>2020</td>
-    <td>$25,000</td>
-  </tr>
-  <tr>
-    <td>Honda</td>
-    <td>Accord</td>
-    <td>2019</td>
-    <td>$22,000</td>
-  </tr>
-  <tr>
-    <td>Ford</td>
-    <td>Mustang</td>
-    <td>2018</td>
-    <td>$35,000</td>
-  </tr>
-
-  <tr>
     <td><input type="text" id="make"></td>
     <td><input type="text" id="model"></td>
     <td><input type="text" id="year"></td>
