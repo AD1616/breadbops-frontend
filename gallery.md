@@ -53,6 +53,7 @@
   } 
 </style>
 <div class="container-fluid">
+
 <div class="row">
     <div class="column">
                 <img src="assets/images/2002sc430.png">
