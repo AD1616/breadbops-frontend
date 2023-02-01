@@ -1,5 +1,4 @@
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
 /* Full-width input fields */
@@ -182,34 +181,33 @@ const options = {
 };
 
 function url2(){
-  const name = document.getelementbyid('name').value;
-  const email = document.getelementbyid('email').value;
-  const password = document.getelementbyid('password').value;
-  const dob = document.getelementbyid('dob').value;
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const dob = document.getElementById('dob').value;
   // const post_options = {
   //   ...options, 
   //   method: 'POST', 
   //   body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
   // }; 
   const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+  console.log(url);
   // fetch(url, post_options)
   //   .then(response => response.json())
   //   .then(data => console.log(data))
   //   .catch(error => console.error(error));
 
-  const xhr = new XMLHttpRequest();
-
-  xhr.open("POST", url, true);
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      console.log(xhr.responseText);
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
     }
-  };
-
-  xhr.send();
-  
-}
+  })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+    
+  }
 
 // Get the modal
 var modal = document.getElementById('id01');
