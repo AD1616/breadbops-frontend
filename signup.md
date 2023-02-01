@@ -128,6 +128,10 @@ hr {
       <input type="password" placeholder="Enter Password" name="psw" required>
       <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" required>
+      <label for="dob"><b>Date of Birth</b></label>
+      <input type="text" placeholder="00/00/0000" name="date of birth" required>
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
@@ -141,22 +145,18 @@ hr {
 </div>
 
 <script>
-// Get the modal
-var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+fetch('https://breadbops.gq/api/person/post?email=test3@gmail.com&password=123qwerty&name=Test 3&dob=01-01-2000', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ "id": 78912 })
+})
+.then(response => response.json())
+.then(response => console.log(JSON.stringify(response)))
 
-</body>
-</html>
-
-
-<script>
 // Get the modal
 var modal = document.getElementById('id01');
 
