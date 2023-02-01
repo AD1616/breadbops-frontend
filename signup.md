@@ -136,7 +136,7 @@ hr {
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" onclick="url()" class="signupbtn">Sign Up</button>
+        <button type="submit" onclick="url2()" class="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>
@@ -144,24 +144,60 @@ hr {
 
 <script>
 
-function url(){
-  name = document.getelementbyid("name");
-  email = document.getelementbyid("email");
-  password = document.getelementbyid("password");
-  dob = document.getelementbyid("dob");
-  url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+// function url(){
+//   name = document.getelementbyid("name");
+//   email = document.getelementbyid("email");
+//   password = document.getelementbyid("password");
+//   dob = document.getelementbyid("dob");
+//   url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
 
-  fetch(url, {
-    method: 'POST',
+//   fetch(url)
+//       .then(response => {
+//           if (response.status !== 200) {
+//               error("PUT API response failure: " + response.status)
+//               return;  // api failure
+//           }
+//           response.json().then(data => {
+//               console.log(data);
+//               if (type === LIKE_KEY) 
+//               document.getElementById(elemID).innerHTML = data.like;  
+//               else if (type === DISLIKE_KEY) 
+//               document.getElementById(elemID).innerHTML = data.dislike; 
+//               else
+//               error("unknown type: " + type); 
+//           })
+//       })
+
+// }
+
+const options = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'default', 
+    credentials: 'same-origin', 
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
+        
     },
-    body: JSON.stringify({ "id": 78912 })
-  })
-  .then(response => response.json())
-  .then(response => console.log(JSON.stringify(response)))
+};
 
+function url2(){
+  document.getElementById('submit-button').addEventListener('click', function() {
+    const name = document.getelementbyid('name').value;
+    const email = document.getelementbyid('email').value;
+    const password = document.getelementbyid('password').value;
+    const dob = document.getelementbyid('dob').value;
+    const post_options = {
+      ...options, 
+      method: 'POST', 
+      body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
+    }; 
+    url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+    fetch(url, post_options)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  });
 }
 
 // Get the modal
