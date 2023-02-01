@@ -117,28 +117,26 @@ hr {
 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/action_page.php">
+  <form class="modal-content">
     <div class="container">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
       <label for="name"><b>Name</b></label>
-      <input type="text" placeholder="Enter Name" name="name" required>
+      <input type="text" placeholder="Enter Name" id="name" name="name" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" id="email" name="email" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="password" name="psw" required>
       <label for="dob"><b>Date of Birth</b></label>
-      <input type="text" placeholder="00/00/0000" name="date of birth" required>
+      <input type="text" placeholder="00/00/0000" id="dob" name="date of birth" required>
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="submit" onclick="url()" class="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>
@@ -146,16 +144,25 @@ hr {
 
 <script>
 
-fetch('https://breadbops.gq/api/person/post?email=test3@gmail.com&password=123qwerty&name=Test 3&dob=01-01-2000', {
+function url(){
+  name = document.getelementbyid("name");
+  email = document.getelementbyid("email");
+  password = document.getelementbyid("password");
+  dob = document.getelementbyid("dob");
+  url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+
+  fetch(url, {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({ "id": 78912 })
-})
-.then(response => response.json())
-.then(response => console.log(JSON.stringify(response)))
+  })
+  .then(response => response.json())
+  .then(response => console.log(JSON.stringify(response)))
+
+}
 
 // Get the modal
 var modal = document.getElementById('id01');
