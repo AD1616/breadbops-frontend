@@ -136,7 +136,7 @@ hr {
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" onclick="url2()" class="signupbtn">Sign Up</button>
+        <button type="submit" onclick="url2()" id="submit-button" class="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>
