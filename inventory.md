@@ -6,7 +6,7 @@
 </style>
 
 <table id="inventory" class="center" style="width:100%">
-  <tr>
+  <!-- <tr>
     <th>Make</th>
     <th>Model</th>
     <th>Year</th>
@@ -15,7 +15,20 @@
     <th>Add Car</th>
     <th>Delete Car</th>
     <th>Edit Car</th>
+  </tr> -->
+  <tbody>
+  <tr th:each="car : ${list}">
+      <td th:text="${car.id}">Car ID</td>
+      <td th:text="${car.make}">Make</td>
+      <td th:text="${car.model}">Model</td>
+      <td th:text="${car.year}">Year</td>
+      <td th:text="${car.price}">Price</td>
+      <!-- <td th:text="${person.model}">Image</td> -->
+          <a th:href="@{/database/carupdate/{id}(id = ${car.id})}">Update</a>
+          <a th:href="@{/database/cardelete/{id}(id = ${car.id})}">Delete</a>
+      </td>
   </tr>
+  </tbody>
 
   <tr>
     <td><input type="text" id="make"></td>
