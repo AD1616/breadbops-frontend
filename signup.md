@@ -182,22 +182,20 @@ const options = {
 };
 
 function url2(){
-  document.getElementById('submit-button').addEventListener('click', function() {
-    const name = document.getelementbyid('name').value;
-    const email = document.getelementbyid('email').value;
-    const password = document.getelementbyid('password').value;
-    const dob = document.getelementbyid('dob').value;
-    const post_options = {
-      ...options, 
-      method: 'POST', 
-      body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
-    }; 
-    url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
-    fetch(url, post_options)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  });
+  const name = document.getelementbyid('name').value;
+  const email = document.getelementbyid('email').value;
+  const password = document.getelementbyid('password').value;
+  const dob = document.getelementbyid('dob').value;
+  const post_options = {
+    ...options, 
+    method: 'POST', 
+    body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
+  }; 
+  url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+  fetch(url, post_options)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
 }
 
 // Get the modal
