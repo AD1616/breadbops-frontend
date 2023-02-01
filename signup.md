@@ -111,7 +111,7 @@ hr {
 </style>
 <body>
 
-<h2>Modal Signup Form</h2>
+<h2>Signup Form</h2>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 
@@ -186,16 +186,29 @@ function url2(){
   const email = document.getelementbyid('email').value;
   const password = document.getelementbyid('password').value;
   const dob = document.getelementbyid('dob').value;
-  const post_options = {
-    ...options, 
-    method: 'POST', 
-    body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
-  }; 
-  url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
-  fetch(url, post_options)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+  // const post_options = {
+  //   ...options, 
+  //   method: 'POST', 
+  //   body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
+  // }; 
+  const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+  // fetch(url, post_options)
+  //   .then(response => response.json())
+  //   .then(data => console.log(data))
+  //   .catch(error => console.error(error));
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", url, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      console.log(xhr.responseText);
+    }
+  };
+
+  xhr.send();
+  
 }
 
 // Get the modal
