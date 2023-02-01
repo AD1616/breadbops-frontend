@@ -111,36 +111,106 @@ hr {
 </style>
 <body>
 
-<h2>Modal Signup Form</h2>
+<h2>Signup Form</h2>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/action_page.php">
+  <form class="modal-content">
     <div class="container">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" id="name" name="name" required>
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" id="email" name="email" required>
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="password" placeholder="Enter Password" id="password" name="psw" required>
+      <label for="dob"><b>Date of Birth</b></label>
+      <input type="text" placeholder="00/00/0000" id="dob" name="date of birth" required>
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="submit" onclick="url2()" id="submit-button" class="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>
 </div>
 
 <script>
+
+// function url(){
+//   name = document.getelementbyid("name");
+//   email = document.getelementbyid("email");
+//   password = document.getelementbyid("password");
+//   dob = document.getelementbyid("dob");
+//   url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+
+//   fetch(url)
+//       .then(response => {
+//           if (response.status !== 200) {
+//               error("PUT API response failure: " + response.status)
+//               return;  // api failure
+//           }
+//           response.json().then(data => {
+//               console.log(data);
+//               if (type === LIKE_KEY) 
+//               document.getElementById(elemID).innerHTML = data.like;  
+//               else if (type === DISLIKE_KEY) 
+//               document.getElementById(elemID).innerHTML = data.dislike; 
+//               else
+//               error("unknown type: " + type); 
+//           })
+//       })
+
+// }
+
+const options = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'default', 
+    credentials: 'same-origin', 
+    headers: {
+        'Content-Type': 'application/json'
+        
+    },
+};
+
+function url2(){
+  const name = document.getelementbyid('name').value;
+  const email = document.getelementbyid('email').value;
+  const password = document.getelementbyid('password').value;
+  const dob = document.getelementbyid('dob').value;
+  // const post_options = {
+  //   ...options, 
+  //   method: 'POST', 
+  //   body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
+  // }; 
+  const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+  // fetch(url, post_options)
+  //   .then(response => response.json())
+  //   .then(data => console.log(data))
+  //   .catch(error => console.error(error));
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", url, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      console.log(xhr.responseText);
+    }
+  };
+
+  xhr.send();
+  
+}
+
 // Get the modal
 var modal = document.getElementById('id01');
 
@@ -153,20 +223,3 @@ window.onclick = function(event) {
 </script>
 
 </body>
-</html>
-
-
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
-</body>
-</html>
