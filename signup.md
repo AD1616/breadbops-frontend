@@ -143,71 +143,56 @@ hr {
 
 <script>
 
-// function url(){
-//   name = document.getelementbyid("name");
-//   email = document.getelementbyid("email");
-//   password = document.getelementbyid("password");
-//   dob = document.getelementbyid("dob");
-//   url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
-
-//   fetch(url)
-//       .then(response => {
-//           if (response.status !== 200) {
-//               error("PUT API response failure: " + response.status)
-//               return;  // api failure
-//           }
-//           response.json().then(data => {
-//               console.log(data);
-//               if (type === LIKE_KEY) 
-//               document.getElementById(elemID).innerHTML = data.like;  
-//               else if (type === DISLIKE_KEY) 
-//               document.getElementById(elemID).innerHTML = data.dislike; 
-//               else
-//               error("unknown type: " + type); 
-//           })
-//       })
-
-// }
-
-const options = {
-    method: 'GET', 
-    mode: 'cors', 
-    cache: 'default', 
-    credentials: 'same-origin', 
-    headers: {
-        'Content-Type': 'application/json'
-        
-    },
-};
 
 function url2(){
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const dob = document.getElementById('dob').value;
-  // const post_options = {
-  //   ...options, 
-  //   method: 'POST', 
-  //   body: JSON.stringify({ name: name, email: email, password: password, dob: dob })
-  // }; 
+
   const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
   console.log(url);
-  // fetch(url, post_options)
-  //   .then(response => response.json())
-  //   .then(data => console.log(data))
-  //   .catch(error => console.error(error));
 
-  fetch(url, {
-    method: "POST",
+  // const options = {
+  //   method: 'POST', 
+  //   mode: 'no-cors', // no-cors, *cors, same-origin
+  //   cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+  //   credentials: 'include', // include, *same-origin, omit
+  //   headers: {
+  //     // 'Content-Type': 'application/json'
+  //     'Content-Type': 'application/x-www-form-urlencoded'
+  //   }
+  // };
+
+  // fetch(url, options)
+  //   .then(response => console.log(response.text()))
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log('error', error));
+
+  postData("https://breadbops.gq/api/person/post", {"email": email, "password": password, "name": name, "dob": dob})
+    .then((data) => { console.log(data); }) // JSON data parsed by `response.json()` call
+    .catch((error) => { console.error(error); });
+
+}
+
+async function postData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    }
-  })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-    
-  }
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return await response.json(); // parses JSON response into native JavaScript objects
+}
+
 
 // Get the modal
 var modal = document.getElementById('id01');
