@@ -150,6 +150,16 @@ function url2(){
   const password = document.getElementById('password').value;
   const dob = document.getElementById('dob').value;
 
+  for (let i = 0; i < dob.length; i++) {
+    if(dob[i] == "/"){
+      window.onerror = function() {
+        var message = "Please format date of birth using dashes (00-00-0000)";
+        alert(message);
+        return true;
+      };
+    }
+  }
+
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
   const url = "https://breadbops.gq/api/person/post";
 
