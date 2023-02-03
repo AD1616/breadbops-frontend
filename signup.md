@@ -128,7 +128,7 @@ hr {
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" id="password" name="psw" required>
       <label for="dob"><b>Date of Birth</b></label>
-      <input type="text" placeholder="00/00/0000" id="dob" name="date of birth" required>
+      <input type="text" placeholder="00-00-0000" id="dob" name="date of birth" required>
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
@@ -184,38 +184,8 @@ function url2(){
     .then(response => console.log(response.text()))
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
-
-
-
-    
-
-
-
+  
 }
-
-// async function postData(url = '', data = {}) {
-//   console.log(url);
-//   console.log(data);
-//   // Default options are marked with *
-//   const response = await fetch(url, {
-//     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//     mode: 'cors', // no-cors, *cors, same-origin
-//     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-//     credentials: 'include', // include, *same-origin, omit
-//     headers: {
-//       'Content-Type': 'application/json'
-//       // 'Content-Type': 'application/x-www-form-urlencoded',
-//     },
-//     redirect: 'follow', // manual, *follow, error
-//     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-//     body: JSON.stringify(data) // body data type must match "Content-Type" header
-//   });
-//   return await response.json(); // parses JSON response into native JavaScript objects
-// }
-
-//   postData("https://breadbops.gq/api/person/post", {"email": email, "password": password, "name": name, "dob": dob})
-//     .then((data) => { console.log(data); }) // JSON data parsed by `response.json()` call
-//     .catch((error) => { console.error(error); });
 
 // Get the modal
 var modal = document.getElementById('id01');
@@ -229,3 +199,4 @@ window.onclick = function(event) {
 </script>
 
 </body>
+
