@@ -150,49 +150,72 @@ function url2(){
   const password = document.getElementById('password').value;
   const dob = document.getElementById('dob').value;
 
-  const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
-  console.log(url);
+  // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+  const url = "https://breadbops.gq/api/person/post";
 
-  // const options = {
-  //   method: 'POST', 
-  //   mode: 'no-cors', // no-cors, *cors, same-origin
-  //   cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-  //   credentials: 'include', // include, *same-origin, omit
-  //   headers: {
-  //     // 'Content-Type': 'application/json'
-  //     'Content-Type': 'application/x-www-form-urlencoded'
-  //   }
-  // };
+  var details = {
+      'email': email,
+      'password': password,
+      'name': name,
+      'dob': dob
+  };
 
-  // fetch(url, options)
-  //   .then(response => console.log(response.text()))
-  //   .then(result => console.log(result))
-  //   .catch(error => console.log('error', error));
-
-  postData("https://breadbops.gq/api/person/post", {"email": email, "password": password, "name": name, "dob": dob})
-    .then((data) => { console.log(data); }) // JSON data parsed by `response.json()` call
-    .catch((error) => { console.error(error); });
-
-}
-
-async function postData(url = '', data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+  var formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+  
+  const options = {
+    method: 'POST', 
     mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      // 'Content-Type': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
     },
-    redirect: 'follow', // manual, *follow, error
-    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-  return await response.json(); // parses JSON response into native JavaScript objects
+    body: formBody
+  };
+
+  fetch(url, options)
+    .then(response => console.log(response.text()))
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+
+
+    
+
+
+
 }
 
+// async function postData(url = '', data = {}) {
+//   console.log(url);
+//   console.log(data);
+//   // Default options are marked with *
+//   const response = await fetch(url, {
+//     method: 'POST', // *GET, POST, PUT, DELETE, etc.
+//     mode: 'cors', // no-cors, *cors, same-origin
+//     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+//     credentials: 'include', // include, *same-origin, omit
+//     headers: {
+//       'Content-Type': 'application/json'
+//       // 'Content-Type': 'application/x-www-form-urlencoded',
+//     },
+//     redirect: 'follow', // manual, *follow, error
+//     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+//     body: JSON.stringify(data) // body data type must match "Content-Type" header
+//   });
+//   return await response.json(); // parses JSON response into native JavaScript objects
+// }
+
+//   postData("https://breadbops.gq/api/person/post", {"email": email, "password": password, "name": name, "dob": dob})
+//     .then((data) => { console.log(data); }) // JSON data parsed by `response.json()` call
+//     .catch((error) => { console.error(error); });
 
 // Get the modal
 var modal = document.getElementById('id01');
