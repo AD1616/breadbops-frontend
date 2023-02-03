@@ -161,7 +161,7 @@ function url2(){
   }
 
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
-  const url = "https://breadbops.gq/api/person/post";
+  const url = "https://breadbops.gq/api/person/post/";
 
   var details = {
       'email': email,
