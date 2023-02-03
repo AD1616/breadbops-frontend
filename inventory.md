@@ -23,7 +23,6 @@
       <td th:text="${car.model}">Model</td>
       <td th:text="${car.year}">Year</td>
       <td th:text="${car.price}">Price</td>
-      <!-- <td th:text="${person.model}">Image</td> -->
           <a th:href="@{/database/carupdate/{id}(id = ${car.id})}">Update</a>
           <a th:href="@{/database/cardelete/{id}(id = ${car.id})}">Delete</a>
       </td>
