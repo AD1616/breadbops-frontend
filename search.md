@@ -65,28 +65,48 @@
 
 <script>
 
-let text = '{ "cars" : [' + 
-  '{ "name":"Honda Odyssey" },' + 
-  '{ "name":"Tesla Model 3" },' +
-  '{ "name":"Toyota Prius" },' +
-  '{ "name":"Honda Civic" } ]}'
+// let text = '{ "cars" : [' + 
+//   '{ "name":"Honda Odyssey" },' + 
+//   '{ "name":"Tesla Model 3" },' +
+//   '{ "name":"Toyota Prius" },' +
+//   '{ "name":"Honda Civic" } ]}'
 
-const data = JSON.parse(text);
+var myHeaders = new Headers();
+myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
 
-let carsDisplay = document.getElementById("list");
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
 
-for (i=0; i < data["cars"].length; i++) {
-  console.log(data["cars"][i]["name"]);
 
-  var li = document.createElement('li');
-  var a = document.createElement('a');
-  a.setAttribute('href', '#');
-  a.innerHTML = data["cars"][i]["name"];
-  li.appendChild(a);
-  li.setAttribute('class', 'cars');
+fetch("https://breadbops.gq/api/carInventory/all", requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    const data = JSON.parse(result);
+    let carsDisplay = document.getElementById("list");
 
-  carsDisplay.appendChild(li);
-}
+    for (i=0; i < data.length; i++) {
+      console.log(data[i]);
+      console.log(data[i]["name"]);
+
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.setAttribute('href', '#');
+      a.innerHTML = data[i]["name"];
+      li.appendChild(a);
+      li.setAttribute('class', 'cars');
+
+      carsDisplay.appendChild(li);
+    } 
+  })
+
+  .catch(error => console.log('error', error));
+
+
+
+
 
 function search_car() {
     let input = document.getElementById('searchbar').value
@@ -109,6 +129,7 @@ function search_car() {
 * {
   outline: none;
 }
+
 
 
 
