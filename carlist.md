@@ -14,29 +14,36 @@
 
 <script>
 
-const options = {
-    method: 'GET', 
-    mode: 'cors', 
-    cache: 'default', 
-    credentials: 'same-origin', 
-    headers: {
-        'Content-Type': 'application/json'
-        
-    },
-};
+function getCars() {
+  const options = {
+      method: 'GET', 
+      mode: 'cors', 
+      cache: 'default', 
+      credentials: 'same-origin', 
+      headers: {
+          'Content-Type': 'application/json'
+          
+      },
+  };
 
 
-fetch('https://breadbops.gq/api/person/all', options)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    let items = '';
-    for (const item of data[0]["carList"]) {
-        items += `<li>${item.name}</li>`;
-    }
-    document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
-  })
-  .catch(error => console.error(error));
+  fetch('https://breadbops.gq/api/person/all', options)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      let items = '';
+      for (const item of data[0]["carList"]) {
+          items += `<li>${item.name}</li>`;
+      }
+      document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
+    })
+    .catch(error => console.error(error));
+
+}
+
+getCars();
+
+
 
 function addCar() {
   const email = document.getElementById('email-input').value;
@@ -72,7 +79,7 @@ function addCar() {
 
   fetch(url, options)
     .then(response => console.log(response.text()))
-    .then(result => console.log(result))
+    .then(result => getCars())
     .catch(error => console.log('error', error));
 }
 
