@@ -14,17 +14,6 @@
 
 <script>
 
-const options = {
-    method: 'GET', 
-    mode: 'cors', 
-    cache: 'default', 
-    credentials: 'same-origin', 
-    headers: {
-        'Content-Type': 'application/json'
-        
-    },
-};
-
 
 fetch('https://breadbops.gq/api/person/all', options)
   .then(response => response.json())
@@ -39,19 +28,41 @@ fetch('https://breadbops.gq/api/person/all', options)
   .catch(error => console.error(error));
 
 function addCar() {
-  document.getElementById('submit-button').addEventListener('click', function() {
-    const email = document.getElementById('email-input').value;
-    const car = document.getElementById('car-input').value;
-    const post_options = {
-      ...options, 
-      method: 'POST', 
-      body: JSON.stringify({ email: email, car: car })
-    }; 
-    fetch('https://breadbops.gq/api/person/addCar', post_options)
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  });
+  const email = document.getElementById('email-input').value;
+  const car = document.getElementById('car-input').value;
+
+  const url = "https://breadbops.gq/api/person/addCar";
+
+  var details = {
+      'email': email,
+      'car': car
+  };
+
+  var formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+
+  
+  const options = {
+    method: 'POST', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      // 'Content-Type': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    body: formBody
+  };
+
+  fetch(url, options)
+    .then(response => console.log(response.text()))
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 }
 
 </script>
