@@ -14,6 +14,52 @@ Enter description here...
 
 <button class="button1" onclick="input()">Upload Car</button>
 
+<script>
+
+function input() {
+  name = document.getElementById("inputCarName");
+  image = "Temp";
+  description = document.getElementById("inputCarDescription");
+
+    const url = "https://breadbops.gq/api/carInventory/post/";
+
+  var details = {
+      'name': name,
+      'image': image,
+      'description': description
+  };
+
+  var formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+  
+  const options = {
+    method: 'POST', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      // 'Content-Type': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    body: formBody
+  };
+
+  fetch(url, options)
+    .then(response => console.log(response.text()))
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+}
+
+
+
+</script>
+
 <style>
 #input {
     text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
