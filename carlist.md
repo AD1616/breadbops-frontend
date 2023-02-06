@@ -46,7 +46,7 @@ function addCar() {
 
   var details = {
       'email': email,
-      'car': car
+      'carName': car
   };
 
   var formBody = [];
