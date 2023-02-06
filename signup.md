@@ -154,6 +154,7 @@ function ncheck(name){
   if(checker == false){
     var message = "Please input first AND last name";
     alert(message);
+    return
   }
 }
 
@@ -168,6 +169,7 @@ function echeck(email){
   if(checker == false){
     var mes = "Please input a valid email address";
     alert(mes);
+    return
   }
 }
 
