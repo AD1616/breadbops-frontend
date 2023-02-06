@@ -146,7 +146,7 @@ hr {
 function ncheck(name){
   //checks for valid first and last name
   const checker = false;
-  for(let i = 0; i < email.length; i++){
+  for(let i = 0; i < name.length; i++){
     if(name[i] == " "){
       checker = true;
     }
