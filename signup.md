@@ -152,11 +152,9 @@ function url2(){
 
   for (let i = 0; i < dob.length; i++) {
     if(dob[i] == "/" || dob.length != 14){
-      window.onerror = function() {
-        var message = "Please format date of birth using 0s and dashes (00-00-0000)";
-        window.alert(message);
-        return true;
-      };
+      var message = "Please format date of birth using 0s and dashes (00-00-0000)";
+      alert(message);
+      return;
     }
   }
 
