@@ -14,6 +14,17 @@
 
 <script>
 
+const options = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'default', 
+    credentials: 'same-origin', 
+    headers: {
+        'Content-Type': 'application/json'
+        
+    },
+};
+
 
 fetch('https://breadbops.gq/api/person/all', options)
   .then(response => response.json())
