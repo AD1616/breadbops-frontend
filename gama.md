@@ -17,15 +17,15 @@ Enter description here...
 <script>
 
 function input() {
-  name = document.getElementById("inputCarName");
-  image = "Temp";
-  description = document.getElementById("inputCarDescription");
+  const name = document.getElementById("inputCarName").value;
+  const image = "Temp";
+  const description = document.getElementById("inputCarDescription").value;
 
-    const url = "https://breadbops.gq/api/carInventory/post/";
+  const url = "https://breadbops.gq/api/carInventory/post/";
 
   var details = {
       'name': name,
-      'image': image,
+      'imageLink': image,
       'description': description
   };
 
@@ -36,6 +36,8 @@ function input() {
     formBody.push(encodedKey + "=" + encodedValue);
   }
   formBody = formBody.join("&");
+
+  console.log(formBody);
   
   const options = {
     method: 'POST', 
