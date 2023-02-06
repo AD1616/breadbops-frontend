@@ -151,7 +151,7 @@ function url2(){
   const dob = document.getElementById('dob').value;
 
   for (let i = 0; i < dob.length; i++) {
-    if(dob[i] == "/" || dob.length != 14){
+    if(dob[i] == "/" || dob.length != 10){
       var message = "Please format date of birth using 0s and dashes (00-00-0000)";
       alert(message);
       return;
