@@ -4,10 +4,16 @@
 
 <div id = "json-data"> </div>
 
-<label for="email-input">Email: </label>
+<label for="email-input">Enter Your Email to see your car list</label>
 <input name="email-input" type="text" id="email-input">
-<label for="car-input">Car Name: </label>
+
+<br>
+
+<label for="car-input">Enter a car name to add it to your list</label>
 <input name="car-input" type="text" id="car-input">
+
+<br>
+<br>
 <button class="button1" onclick="addCar()" id="submit-button">Submit</button>
 
 </body>
@@ -15,6 +21,8 @@
 <script>
 
 function getCars() {
+  const email = document.getElementById('email-input').value;
+  
   const options = {
       method: 'GET', 
       mode: 'cors', 
@@ -27,12 +35,24 @@ function getCars() {
   };
 
 
-  fetch('https://breadbops.gq/api/person/all', options)
+  // fetch('https://breadbops.gq/api/person/all', options)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     let items = '';
+  //     for (const item of data[0]["carList"]) {
+  //         items += `<li>${item.name}</li>`;
+  //     }
+  //     document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
+  //   })
+  //   .catch(error => console.error(error));
+
+  fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options)
     .then(response => response.json())
     .then(data => {
       console.log(data);
       let items = '';
-      for (const item of data[0]["carList"]) {
+      for (const item of data) {
           items += `<li>${item.name}</li>`;
       }
       document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
@@ -40,8 +60,6 @@ function getCars() {
     .catch(error => console.error(error));
 
 }
-
-getCars();
 
 
 
@@ -86,6 +104,26 @@ function addCar() {
 </script>
 
 <style>
+
+  #input {
+      text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+  }
+
+
+  a:focus,
+  a:hover {
+    text-decoration-color: black;
+  }
+
+  input {
+    font-size: 1em;
+    padding: 0.2em 0.5em;
+  }   
+
+  label {
+      font-size: 1em;
+  }
+
   .button {
     background-color: #ad1616;
     color: white;
@@ -99,7 +137,7 @@ function addCar() {
     border: none;
     border-radius: 12px;
     color: #ad1616; 
-    font-size: 1em;
+    font-size: 2em;
   }
 
   .button1:hover {
