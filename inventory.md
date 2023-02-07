@@ -1,4 +1,3 @@
-
 <head>
 <style>
   img{
@@ -29,4 +28,3 @@
         </div>
         <script src="carlist.js"></script>
     </body>
-
