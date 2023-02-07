@@ -10,15 +10,21 @@
 <br>
 
 <label for="car-input">Enter a car name to add it to your list</label>
-<input name="car-input" type="text" id="car-input">
+<input name="car-input" onkeyup="search_car()" type="text" id="car-input">
 
 <br>
 <br>
 <button class="button1" onclick="addCar()" id="submit-button">Submit</button>
 
+<ol id='list'>
+
+</ol>
+
 </body>
 
 <script>
+
+// Called to update the CAR LIST
 
 function getCars() {
   const email = document.getElementById('email-input').value;
@@ -34,18 +40,7 @@ function getCars() {
       },
   };
 
-
-  // fetch('https://breadbops.gq/api/person/all', options)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log(data);
-  //     let items = '';
-  //     for (const item of data[0]["carList"]) {
-  //         items += `<li>${item.name}</li>`;
-  //     }
-  //     document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
-  //   })
-  //   .catch(error => console.error(error));
+  // Generates car list for particular email
 
   fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options)
     .then(response => response.json())
@@ -61,7 +56,48 @@ function getCars() {
 
 }
 
+var myHeaders = new Headers();
+myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
 
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+// Generates options to add to car list
+
+fetch("https://breadbops.gq/api/carInventory/all", requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    const data = JSON.parse(result);
+    let carsDisplay = document.getElementById("list");
+
+    for (i=0; i < data.length; i++) {
+      (function(i) {
+        var but = document.createElement('button');
+        but.innerHTML = data[i]["name"];
+        but.setAttribute('class', 'cars');
+
+        but.addEventListener("click", function() {
+          addCarFromList(but.innerHTML);
+        });
+        carsDisplay.appendChild(but);
+      })(i);
+    }
+  })
+  .catch(error => console.log('error', error));
+
+
+// Functionality to add car from options
+
+function addCarFromList(carToAdd) {
+  console.log(carToAdd);
+  document.getElementById('car-input').value = carToAdd;
+  addCar();
+}
+
+// Updates the Carlist
 
 function addCar() {
   const email = document.getElementById('email-input').value;
@@ -99,6 +135,24 @@ function addCar() {
     .then(response => console.log(response.text()))
     .then(result => getCars())
     .catch(error => console.log('error', error));
+}
+
+// Updates the options based on input
+
+function search_car() {
+    let input = document.getElementById('car-input').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('cars');
+    
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";    
+        }
+    }
 }
 
 </script>
