@@ -1,28 +1,30 @@
+<body>
+        <h1 class="text-center">Add to car inventory</h1>
 
-
-<label for="inputCarName">Input Car Name</label>
-<input id="inputCarName" type="text" name="inputCarName" autocomplete="off" />
-
-
-<label for="img">Upload Image</label>
-<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*">
- 
-<label for="inputCarDescription">Enter a Description of the Car</label>
-<textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
-Enter description here...
-</textarea>
+<label for="inputCarName">Name</label>
+<input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
 
 <label for="inputMake">Make</label>
-<input id="inputMake" type="text" name="inputMake" autocomplete="off" />
+<input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
 
 <label for="inputModel">Model</label>
-<input id="inputModel" type="text" name="inputModel" autocomplete="off" />
+<input id="inputModel" type="text" name="inputModel" autocomplete="off" /><br>
 
 <label for="inputYear">Year</label>
-<input id="inputYear" type="number" name="inputYear" autocomplete="off" />
+<input id="inputYear" type="number" name="inputYear" autocomplete="off" /><br>
+
+<label for="inputCarDescription">Description</label>
+<textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
+Enter description here...
+</textarea><br>
+
+<p><label for="img">Upload Image</label>
+<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
+ 
+
 
 <button class="button1" onclick="input()">Upload Car</button>
-
+</body>
 <script>
 
 function input() {
@@ -33,7 +35,7 @@ function input() {
   const model = document.getElementById("inputModel").value;
   const year = document.getElementById("inputYear").value;
 
-  const url = "https://breadbops.gq/api/carInventory/post/";
+  const url = "https:/breadbops.gq/api/carInventory/post/";
 
   var details = {
       'name': name,
