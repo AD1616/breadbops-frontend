@@ -154,7 +154,7 @@ function ncheck(name){
   if(checker == false){
     var message = "Please input first AND last name";
     alert(message);
-    return
+    return;
   }
 }
 
@@ -169,7 +169,7 @@ function echeck(email){
   if(checker == false){
     var mes = "Please input a valid email address";
     alert(mes);
-    return
+    return;
   }
 }
 
@@ -189,7 +189,9 @@ function url2(){
   const password = document.getElementById('password').value;
   const dob = document.getElementById('dob').value;
 
-  checks(email, dob);
+  ncheck(name);
+  echeck(email);
+  dcheck(dob);
 
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
   const url = "https://breadbops.gq/api/person/post/";
@@ -200,10 +202,6 @@ function url2(){
       'name': name,
       'dob': dob
   };
-
-  ncheck(name);
-  echeck(email);
-  dcheck(dob);
 
   var formBody = [];
   for (var property in details) {
