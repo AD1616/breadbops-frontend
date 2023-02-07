@@ -1,3 +1,12 @@
+var myHeaders = new Headers();
+myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
 fetch("https://breadbops.gq/api/carInventory/all").then((data)=>{
     console.log(data);
     return data.json();

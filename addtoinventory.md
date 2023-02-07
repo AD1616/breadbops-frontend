@@ -1,5 +1,4 @@
-<body>
-        <h1 class="text-center">Add to car inventory</h1>
+<h1 class="text-center">Add to car inventory</h1>
 
 <label for="inputCarName">Name</label>
 <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
@@ -24,7 +23,7 @@ Enter description here...
 
 
 <button class="button1" onclick="input()">Upload Car</button>
-</body>
+
 <script>
 
 function input() {
