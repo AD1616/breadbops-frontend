@@ -16,7 +16,7 @@
 <br>
 <button class="button1" onclick="addCar()" id="submit-button">Submit</button>
 
-<ol id='list'>
+<ol class="center" id='list'>
 
 </ol>
 
@@ -167,6 +167,17 @@ function search_car() {
 
   #input {
       text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+  }
+
+  .center
+  {
+    text-align: center;
+    list-style-position: inside;
+  }
+  ol.center button
+  {
+    margin-top: 3%;
+    margin-left: 40%;
   }
 
 
