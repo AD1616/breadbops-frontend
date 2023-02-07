@@ -85,9 +85,12 @@ fetch("https://breadbops.gq/api/carInventory/all", requestOptions)
         but.addEventListener("click", function() {
           addCarFromList(but.innerHTML);
         });
+        
+        but.style.display="list-item"; 
         carsDisplay.appendChild(but);
       })(i);
     }
+
   })
   .catch(error => console.log('error', error));
 
