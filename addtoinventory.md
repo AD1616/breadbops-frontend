@@ -34,7 +34,7 @@ function input() {
   const model = document.getElementById("inputModel").value;
   const year = document.getElementById("inputYear").value;
 
-  const url = "https:/breadbops.gq/api/carInventory/post/";
+  const url = "https://breadbops.gq/api/carInventory/post/";
 
   var details = {
       'name': name,
