@@ -29,10 +29,25 @@ function login() {
     })
   };
 
+  // fetch(url, options)
+  //   .then(response => console.log(response.text()))
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log('error', error));
+
+
+  // Fetch JWT
   fetch(url, options)
-    .then(response => console.log(response.text()))
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  .then(response => {
+      // trap error response from Web API
+      if (!response.ok) {
+          const errorMsg = 'Login error: ' + response.status;
+          console.log(errorMsg);
+          return;
+      }
+      // Success!!!
+      // Redirect to Database location
+      window.location.href = "{{site.baseurl}}/addtoinventory";
+  })
   
 }
 
