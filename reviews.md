@@ -433,7 +433,7 @@ function connect(){
 // }
 
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
-  const url = "https://breadbops.gq/api/review/post/";
+  const url = "https://breadbops.gq/api/reviewInventory/post/";
 
   var details = {
       'email': email,
