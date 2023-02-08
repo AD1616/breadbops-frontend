@@ -440,7 +440,7 @@ function connect(){
       'stars': stars,
       'name': name,
       'comments': comments,
-      'phone' : phone
+      'phone number' : phone
   };
 
   var formBody = [];
