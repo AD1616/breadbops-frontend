@@ -22,6 +22,7 @@ function login() {
     credentials: 'include', // include, *same-origin, omit
     headers: {
         'Content-Type': 'application/json'
+        "withCredentials" : true
     },
     body: JSON.stringify({
         "email" : email,
@@ -42,7 +43,7 @@ function login() {
       if (!response.ok) {
           const errorMsg = 'Login error: ' + response.status;
           console.log(errorMsg);
-          return;
+          return; 
       }
       // Success!!!
       // Redirect to Database location
