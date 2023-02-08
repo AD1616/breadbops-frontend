@@ -189,9 +189,9 @@ function url2(){
   const password = document.getElementById('password').value;
   const dob = document.getElementById('dob').value;
 
-  ncheck(name);
-  echeck(email);
-  dcheck(dob);
+  // ncheck(name);
+  // echeck(email);
+  // dcheck(dob);
 
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
   const url = "https://breadbops.gq/api/person/post/";
