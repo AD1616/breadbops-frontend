@@ -22,7 +22,6 @@ function login() {
     credentials: 'include', // include, *same-origin, omit
     headers: {
         'Content-Type': 'application/json'
-        "withCredentials" : true
     },
     body: JSON.stringify({
         "email" : email,
