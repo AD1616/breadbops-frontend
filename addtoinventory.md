@@ -1,5 +1,7 @@
 <h1 class="text-center">Add to car inventory</h1>
 
+<h2 id="error"> </h2>
+
 <label for="inputCarName">Name</label>
 <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
 
@@ -67,9 +69,18 @@ function input() {
   };
 
   fetch(url, options)
-    .then(response => console.log(response.text()))
+    .then(response => {
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error("You don't have permission");
+        } else {
+          throw new Error("Something went wrong");
+        }
+      }
+      return response.json();
+    })
     .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    .catch(error => document.getElementById("error").innerHTML = error.message);
   
 }
 
