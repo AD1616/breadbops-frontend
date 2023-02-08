@@ -1,80 +1,3 @@
-Gama Motors is dedicated to delivering the best service to our customers.
-
- <script src="https://use.fontawesome.com/a6f0361695.js"></script>
-
-<h2 id="fh2">Leave Gama Motors A Review Or Write A Comment</h2>
-
-<form id="feedback" action="">
-  <div class="pinfo">Personal Information</div>
-  
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-user"></i></span>
-  <input  name="name" placeholder="First and Last Name" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-    <input name="email" type="email" class="form-control" placeholder="Email">
-     </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-  <input  name="phone" placeholder="Phone Number" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
- <div class="pinfo">Rate our Overall Services</div>
-  
-
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-heart"></i></span>
-   <select class="form-control" id="rate">
-      <option value="N/A">N/A</option>
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
-    </select>
-    </div>
-  </div>
-</div>
-
- <div class="pinfo">Feedback and Comments</div>
-  
-
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-  <textarea class="form-control" id="review" rows="3"></textarea>
- 
-  </div>
-  </div>
-</div>
-
- <button type="submit" class="btn btn-primary" style="background-color:#ad1616">Submit</button>
-
-
-</form>
-
-
-
-
-
 <style>
   #feedback {
   max-width: 60%;
@@ -394,3 +317,161 @@ fieldset[disabled] a.btn {
 }
 
 </style>
+
+Gama Motors is dedicated to delivering the best service to our customers.
+
+ <script src="https://use.fontawesome.com/a6f0361695.js"></script>
+
+<h2 id="fh2">Leave Gama Motors A Review Or Write A Comment</h2>
+
+<form id="feedback" action="">
+  <div class="pinfo">Personal Information</div>
+  
+<div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  <input  name="name" placeholder="First and Last Name" id="name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+    <input name="email" type="email" id="email" class="form-control" placeholder="Email">
+     </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+  <input  name="phone" placeholder="Phone Number" id="phone" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+ <div class="pinfo">Rate our Overall Services</div>
+  
+
+<div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+   <select class="form-control" id="stars">
+      <option value="N/A">N/A</option>
+      <option value="1star">1</option>
+      <option value="2stars">2</option>
+      <option value="3stars">3</option>
+      <option value="4stars">4</option>
+      <option value="5stars">5</option>
+    </select>
+    </div>
+  </div>
+</div>
+
+<div class="pinfo">Feedback and Comments</div>
+<div class="form-group">
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+  <textarea class="form-control" id="comments" rows="3"></textarea>
+  </div>
+  </div>
+</div>
+
+ <button type="submit" class="btn btn-primary" onclick="connect()" style="background-color:#ad1616">Submit</button>
+
+</form>
+
+<script>
+
+function connect(){
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const stars = document.getElementById('stars').value;
+  const comments = document.getElementById('comments').value;
+
+
+//   //checks for valid first and last name
+//   const checker = false;
+//   for(let i = 0; i < name.length; i++){
+//     if(name[i] == " "){
+//       checker = true;
+//     }
+//   }
+//   if(checker == false){
+//     var message = "Please input first AND last name";
+//     alert(message);
+//     return;
+//   }
+// }
+
+// //checks for valid email
+// const checker = false; 
+// for(let j = 0; j < email.length; j++){
+//   if(email[j] == "@"){
+//     checker = true;
+//   }
+// }
+// if(checker == false){
+//   var mes = "Please input a valid email address";
+//   alert(mes);
+//   return;
+// }
+
+// for (let i = 0; i < dob.length; i++) {
+//   if(dob[i] == "/" || dob.length != 10){
+//     var message = "Please format date of birth using 0s and dashes (00-00-0000)";
+//     alert(message);
+//     return;
+//   }
+// }
+
+  // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
+  const url = "https://breadbops.gq/api/review/post/";
+
+  var details = {
+      'email': email,
+      'stars': stars,
+      'name': name,
+      'comments': comments,
+      'phone' : phone
+  };
+
+  var formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+  
+  const options = {
+    method: 'POST', 
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      // 'Content-Type': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    body: formBody
+  };
+
+  fetch(url, options)
+    .then(response => console.log(response.text()))
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+}
+
+</script>
+
+
+
+

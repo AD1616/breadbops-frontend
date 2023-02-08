@@ -143,13 +143,47 @@ hr {
 
 <script>
 
-
 function url2(){
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const dob = document.getElementById('dob').value;
 
+
+//   //checks for valid first and last name
+//   const checker = false;
+//   for(let i = 0; i < name.length; i++){
+//     if(name[i] == " "){
+//       checker = true;
+//     }
+//   }
+//   if(checker == false){
+//     var message = "Please input first AND last name";
+//     alert(message);
+//     return;
+//   }
+// }
+
+// //checks for valid email
+// const checker = false; 
+// for(let j = 0; j < email.length; j++){
+//   if(email[j] == "@"){
+//     checker = true;
+//   }
+// }
+// if(checker == false){
+//   var mes = "Please input a valid email address";
+//   alert(mes);
+//   return;
+// }
+
+// for (let i = 0; i < dob.length; i++) {
+//   if(dob[i] == "/" || dob.length != 10){
+//     var message = "Please format date of birth using 0s and dashes (00-00-0000)";
+//     alert(message);
+//     return;
+//   }
+// }
 
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
   const url = "https://breadbops.gq/api/person/post/";
