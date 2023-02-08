@@ -1,7 +1,6 @@
 <h1> View and Update your Car List </h1>
 
 <br>
-<br>
 
 <body>
 
