@@ -1,20 +1,22 @@
 <h1> View and Update your Car List </h1>
 
+<br>
+<br>
+
 <body>
 
 <div id = "json-data"> </div>
 
 <label for="email-input">Enter Your Email to see your car list</label>
 <input name="email-input" type="text" id="email-input">
+<button class="button1" onclick="addCar()" id="submit-button">Submit</button>
 
 <br>
 
-<label for="car-input">Enter a car name to add it to your list</label>
+<label id="car-input-label" for="car-input">Enter a car name, and select it from our inventory to add it</label>
 <input name="car-input" onkeyup="search_car()" type="text" id="car-input">
 
-<br>
-<br>
-<button class="button1" onclick="addCar()" id="submit-button">Submit</button>
+
 
 <ol class="center" id='list'>
 
@@ -24,6 +26,9 @@
 
 <script>
 
+document.getElementById("car-input").style.visibility = "hidden";
+document.getElementById("car-input-label").style.visibility = "hidden";
+document.getElementById("list").style.visibility = "hidden";
 // Called to update the CAR LIST
 
 function getCars() {
@@ -53,6 +58,10 @@ function getCars() {
       document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
     })
     .catch(error => console.error(error));
+  
+  document.getElementById("car-input-label").style.visibility = "visible";
+  document.getElementById("car-input").style.visibility = "visible";
+  document.getElementById("list").style.visibility = "visible";
 
 }
 
@@ -208,7 +217,7 @@ function search_car() {
     border: none;
     border-radius: 12px;
     color: #ad1616; 
-    font-size: 2em;
+    font-size: 1em;
   }
 
   .button1:hover {
