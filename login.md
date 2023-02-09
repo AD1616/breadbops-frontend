@@ -7,7 +7,7 @@
 
 <button class="button1" onclick="login()">Login</button>
 
-<button class="button1" onclick="logout()">logout</button>
+<button class="button1" onclick="logout()">Logout</button>
 
 
 <script>
@@ -52,11 +52,13 @@ function login() {
       window.location.href = "{{site.baseurl}}/addtoinventory";
   })
 
-  function logout() {
-    document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.reload();
-  }
+
   
+}
+
+function logout() {
+  document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  window.location.reload();
 }
 
 
