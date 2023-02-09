@@ -12,9 +12,13 @@
             <td><a href="{{site.baseurl}}/addtoinventory">Add Car</a></td>
             <td><a href="{{site.baseurl}}/signup">Sign Up</a></td>
             <td><a href="{{site.baseurl}}/login">Login/Logout</a></td>
+            <td id="user"> </td>
         </tr>
     </table>
 </customHead>
 
+<script>
+document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
+</script>
 
     
