@@ -77,7 +77,6 @@ function input() {
           throw new Error("Something went wrong");
         }
       }
-      return response.json();
     })
     .then(result => console.log(result))
     .catch(error => document.getElementById("error").innerHTML = error.message);
