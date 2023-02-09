@@ -63,15 +63,24 @@ function logout() {
   window.location.reload();
 }
 
-if (sessionStorage.getItem("token") == null) {
-    sessionStorage.setItem("username", "Guest");
+// sleep time expects milliseconds
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-else if (sessionStorage.getItem("username") == null) {
-    sessionStorage.setItem("username", "Guest");
-}
+// Usage!
+sleep(500).then(() => {
+  if (sessionStorage.getItem("token") == null) {
+      sessionStorage.setItem("username", "Guest");
+  }
 
-document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
+  else if (sessionStorage.getItem("username") == null) {
+      sessionStorage.setItem("username", "Guest");
+  }
+
+  document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
+});
+
 
 
 </script>
