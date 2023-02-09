@@ -1,5 +1,7 @@
 <h1 class="text-center">Add to car inventory</h1>
 
+<h2 id="error"> </h2>
+
 <label for="inputCarName">Name</label>
 <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
 
@@ -57,8 +59,8 @@ function input() {
   const options = {
     method: 'POST', 
     mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
     headers: {
       // 'Content-Type': 'application/json'
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -67,9 +69,17 @@ function input() {
   };
 
   fetch(url, options)
-    .then(response => console.log(response.text()))
+    .then(response => {
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error("You don't have permission");
+        } else {
+          throw new Error("Something went wrong");
+        }
+      }
+    })
     .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    .catch(error => document.getElementById("error").innerHTML = error.message);
   
 }
 
