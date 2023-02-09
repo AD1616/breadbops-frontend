@@ -123,6 +123,29 @@ function search_car() {
         }
     }
 }
+
+
+
+function getJwtTokenFromCookie() {
+  let jwtToken = null;
+  const cookies = document.cookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    if (cookie.substring(0, "jwtToken".length + 1) === "jwtToken=") {
+      jwtToken = decodeURIComponent(cookie.substring("jwtToken".length + 1));
+      break;
+    }
+  }
+  return jwtToken;
+}
+
+const jwtToken = getJwtTokenFromCookie();
+if (jwtToken) {
+  console.log(`JWT Token: ${jwtToken}`);
+} else {
+  console.error("JWT Token not found in cookies.");
+}
+
 </script>
 
 <style>
