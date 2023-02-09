@@ -88,9 +88,6 @@ fetch("https://breadbops.gq/api/carInventory/all", requestOptions)
     let carsDisplay = document.getElementById("list");
 
     for (i=0; i < data.length; i++) {
-      console.log(data[i]);
-      console.log(data[i]["name"]);
-
       var li = document.createElement('li');
       var a = document.createElement('a');
       a.setAttribute('href', '#');
@@ -124,27 +121,44 @@ function search_car() {
     }
 }
 
-
-
 function getJwtTokenFromCookie() {
-  let jwtToken = null;
+  let jwt = null;
   const cookies = document.cookie.split(";");
   for (let i = 0; i < cookies.length; i++) {
     const cookie = cookies[i].trim();
-    if (cookie.substring(0, "jwtToken".length + 1) === "jwtToken=") {
-      jwtToken = decodeURIComponent(cookie.substring("jwtToken".length + 1));
+    if (cookie.substring(0, "jwt".length + 1) === "jwt=") {
+      jwt = decodeURIComponent(cookie.substring("jwt".length + 1));
       break;
     }
   }
-  return jwtToken;
+  return jwt;
 }
 
-const jwtToken = getJwtTokenFromCookie();
-if (jwtToken) {
-  console.log(`JWT Token: ${jwtToken}`);
+const jwt = getJwtTokenFromCookie();
+if (jwt) {
+  console.log(`${jwt}`);
 } else {
   console.error("JWT Token not found in cookies.");
 }
+
+sessionStorage.setItem("token", `${jwt}`);
+
+const optionsJWT = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'no-cache', 
+    credentials: 'include', 
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': sessionStorage.getItem("token")
+    },
+};
+
+fetch('https://breadbops.gq/getUsername', optionsJWT)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+  
 
 </script>
 
