@@ -1,3 +1,5 @@
+<h1 id="user"> </h1>
+
 <label for="inputEmail">Email</label>
 <input id="inputEmail" type="text" name="inputEmail" autocomplete="off" />
 
@@ -61,6 +63,15 @@ function logout() {
   window.location.reload();
 }
 
+if (sessionStorage.getItem("token") == null) {
+    sessionStorage.setItem("username", "Guest");
+}
+
+else if (sessionStorage.getItem("username") == null) {
+    sessionStorage.setItem("username", "Guest");
+}
+
+document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
 
 
 </script>
