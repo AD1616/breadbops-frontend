@@ -36,8 +36,8 @@ function getCars() {
   const options = {
       method: 'GET', 
       mode: 'cors', 
-      cache: 'default', 
-      credentials: 'same-origin', 
+      cache: 'no-cache', 
+      credentials: 'include', 
       headers: {
           'Content-Type': 'application/json'
           
@@ -136,8 +136,8 @@ function addCar() {
   const options = {
     method: 'POST', 
     mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'include', // include, *same-origin, omit
     headers: {
       // 'Content-Type': 'application/json'
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
