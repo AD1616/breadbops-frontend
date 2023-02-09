@@ -155,9 +155,11 @@ const optionsJWT = {
 };
 
 fetch('https://breadbops.gq/getUsername', optionsJWT)
-  .then(response => console.log(response))
-  .then(data => console.log(data))
+  .then(response => response.text())
+  .then(data => sessionStorage.setItem("username", data))
   .catch(error => console.error(error));
+
+console.log(sessionStorage.getItem("username"));
   
 
 </script>
