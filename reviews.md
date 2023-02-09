@@ -436,11 +436,11 @@ function connect(){
   const url = "https://breadbops.gq/api/reviewInventory/post/";
 
   var details = {
-      'email': email,
-      'stars': stars,
-      'name': name,
-      'comments': comments,
-      'phone number' : phone
+    'name': name,
+    'email': email,
+    'phone number' : phone,
+    'stars': stars,
+    'comments': comments
   };
 
   var formBody = [];
