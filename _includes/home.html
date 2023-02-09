@@ -18,6 +18,10 @@
 </customHead>
 
 <script>
+
+if (sessionStorage.getItem("username") == null || sessionStorage.getItem("token") == null) {
+    sessionStorage.setItem("username", "Guest");
+}
 document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
 </script>
 
