@@ -155,7 +155,7 @@ const optionsJWT = {
 };
 
 fetch('https://breadbops.gq/getUsername', optionsJWT)
-  .then(response => response.json())
+  .then(response => console.log(response))
   .then(data => console.log(data))
   .catch(error => console.error(error));
   
