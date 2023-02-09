@@ -71,22 +71,24 @@ function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+if (sessionStorage.getItem("token") == null) {
+  sessionStorage.setItem("username", "Guest");
+}
+
+else if (sessionStorage.getItem("username") == null) {
+  sessionStorage.setItem("username", "Guest");
+}
+
+else if (sessionStorage.getItem("username" == "{\"timestamp\":\"2023-02-09T07:19:37.229+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"\",\"path\":\"/getUsername\"}")) {
+  sessionStorage.setItem("username", "Guest");
+}
+
 // Usage!
 sleep(500).then(() => {
-  if (sessionStorage.getItem("token") == null) {
-    sessionStorage.setItem("username", "Guest");
-  }
-
-  else if (sessionStorage.getItem("username") == null) {
-    sessionStorage.setItem("username", "Guest");
-  }
-
-  else if (sessionStorage.getItem("username" == "{\"timestamp\":\"2023-02-09T07:19:37.229+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"\",\"path\":\"/getUsername\"}")) {
-    sessionStorage.setItem("username", "Guest");
-  }
-
   document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
 });
+
+
 
 
 
