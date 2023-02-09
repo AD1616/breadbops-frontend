@@ -85,6 +85,9 @@ else if (sessionStorage.getItem("username" == "{\"timestamp\":\"2023-02-09T07:19
 
 // Usage!
 sleep(500).then(() => {
+  if (sessionStorage.getItem("username")[0] == "{") {
+    console.log("bad username");
+  }
   document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
 });
 
