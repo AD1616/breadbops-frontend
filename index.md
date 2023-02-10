@@ -10,6 +10,9 @@
 <p> Search </p>
 <p> Reviews </p>
 
+<img src="assets/images/frontpageBackround">
+
+
 </body>
 
 

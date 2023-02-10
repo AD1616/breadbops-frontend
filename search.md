@@ -121,53 +121,53 @@ function search_car() {
     }
 }
 
-function getJwtTokenFromCookie() {
-  let jwt = null;
-  const cookies = document.cookie.split(";");
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.substring(0, "jwt".length + 1) === "jwt=") {
-      jwt = decodeURIComponent(cookie.substring("jwt".length + 1));
-      break;
-    }
-  }
-  return jwt;
-}
+// function getJwtTokenFromCookie() {
+//   let jwt = null;
+//   const cookies = document.cookie.split(";");
+//   for (let i = 0; i < cookies.length; i++) {
+//     const cookie = cookies[i].trim();
+//     if (cookie.substring(0, "jwt".length + 1) === "jwt=") {
+//       jwt = decodeURIComponent(cookie.substring("jwt".length + 1));
+//       break;
+//     }
+//   }
+//   return jwt;
+// }
 
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
+// function sleep (time) {
+//   return new Promise((resolve) => setTimeout(resolve, time));
+// }
 
-// Usage!
-sleep(500).then(() => {
-  const jwt = getJwtTokenFromCookie();
-  if (jwt) {
-    console.log(`${jwt}`);
-  } else {
-    console.error("JWT Token not found in cookies.");
-  }
+// // Usage!
+// sleep(500).then(() => {
+//   const jwt = getJwtTokenFromCookie();
+//   if (jwt) {
+//     console.log(`${jwt}`);
+//   } else {
+//     console.error("JWT Token not found in cookies.");
+//   }
 
-  sessionStorage.setItem("token", `${jwt}`);
+//   sessionStorage.setItem("token", `${jwt}`);
 
-  const optionsJWT = {
-      method: 'GET', 
-      mode: 'cors', 
-      cache: 'no-cache', 
-      credentials: 'include', 
-      headers: {
-          'Content-Type': 'application/json',
-          'Authorization': sessionStorage.getItem("token")
-      },
-  };
+//   const optionsJWT = {
+//       method: 'GET', 
+//       mode: 'cors', 
+//       cache: 'no-cache', 
+//       credentials: 'include', 
+//       headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': sessionStorage.getItem("token")
+//       },
+//   };
 
-  fetch('https://breadbops.gq/getUsername', optionsJWT)
-    .then(response => response.text())
-    .then(data => sessionStorage.setItem("username", data))
-    .catch(error => console.error(error));
+//   fetch('https://breadbops.gq/getUsername', optionsJWT)
+//     .then(response => response.text())
+//     .then(data => sessionStorage.setItem("username", data))
+//     .catch(error => console.error(error));
 
-  console.log(sessionStorage.getItem("username"));
+//   console.log(sessionStorage.getItem("username"));
   
-});
+// });
 
 
 

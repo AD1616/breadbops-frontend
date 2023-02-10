@@ -51,8 +51,56 @@ function login() {
       }
       // Success!!!
       // Redirect to Database location
+      
+      
       window.location.href = "{{site.baseurl}}/addtoinventory";
+
+
+        // get the JWT from the cookie
+      var jwt = getCookie("token");
+
+      // function to extract the JWT from the cookie
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      // check if the JWT exists
+      if (jwt) {
+        // parse the JWT and get the header, payload, and signature
+        var jwtParts = jwt.split(".");
+        if (jwtParts.length != 3) {
+          console.error("The JWT is not formatted correctly.");
+          return;
+        }
+        
+        var header = JSON.parse(atob(jwtParts[0]));
+        var payload = JSON.parse(atob(jwtParts[1]));
+        var signature = jwtParts[2];
+
+        // validate the signature
+        // ...
+
+        // extract the information you need from the payload
+        var userId = payload.email;
+      } else {
+        console.error("The JWT is not present in the cookie.");
+      }
   })
+
+
+
 
 
   
@@ -79,9 +127,6 @@ else if (sessionStorage.getItem("username") == null) {
   sessionStorage.setItem("username", "Guest");
 }
 
-else if (sessionStorage.getItem("username" == "{\"timestamp\":\"2023-02-09T07:19:37.229+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"\",\"path\":\"/getUsername\"}")) {
-  sessionStorage.setItem("username", "Guest");
-}
 
 // Usage!
 sleep(500).then(() => {
