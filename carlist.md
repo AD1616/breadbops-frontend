@@ -185,7 +185,7 @@ function search_car() {
   ol.center button
   {
     margin-top: 3%;
-    margin-left: 40%;
+    margin-left: 45%;
   }
 
 
