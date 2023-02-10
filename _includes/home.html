@@ -17,7 +17,9 @@
 
 
 <div class="navbar">
-    <a href="{{site.baseurl}}/">Home</a>
+
+    <a style="float:left;" id="user"> </a>
+    <a style="float:left;" href="{{site.baseurl}}/">Home</a>
 
     <div class="dropdown">
         <button class="dropbtn"> Admin
@@ -50,8 +52,8 @@
         </div>
     </div>
 
-    <a id="user"> </a>
 </div>
+
 
 <script>
 if (sessionStorage.getItem("username") == null) {
@@ -70,32 +72,31 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 .navbar {
   overflow: hidden;
   background-color: #333;
-  font-family: Arial;
+  font-family: Garamond;
 }
 
 /* Links inside the navbar */
 .navbar a {
-  float: left;
-  font-size: 16px;
+  font-size: 30px;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 30px;
   text-decoration: none;
 }
 
 /* The dropdown container */
 .dropdown {
-  float: left;
+  float: right;
   overflow: hidden;
 }
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
+  font-size: 30px;
+  border: none; 
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 20px 30px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
@@ -120,7 +121,7 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 .dropdown-content a {
   float: none;
   color: black;
-  padding: 12px 16px;
+  padding: 12px 10px;
   text-decoration: none;
   display: block;
   text-align: left;
