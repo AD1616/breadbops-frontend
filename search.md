@@ -45,7 +45,7 @@
           <input id="searchbar" onkeyup="search_car()" type="text" placeholder="Search" required>
         </div>
         <div class="td" id="s-cover">
-          <button onclick="search_car()" type="submit">
+          <button id="searchBut" onclick="search_car()" type="submit">
             <div id="s-circle"></div>
             <span></span>
           </button>
@@ -272,7 +272,7 @@ input[type="text"]::placeholder {
   padding-left: 35px;
 }
 
-button {
+#searchBut button {
   position: relative;
   display: block;
   width: 84px;
@@ -294,7 +294,7 @@ button {
   transition: 0.5s ease all;
 }
 
-button span {
+#searchBut button span {
   position: absolute;
   top: 68px;
   left: 43px;
@@ -307,8 +307,8 @@ button span {
   transition: 0.5s ease all;
 }
 
-button span:before,
-button span:after {
+#searchBut button span:before,
+#searchBut button span:after {
   content: "";
   position: absolute;
   bottom: 0;
