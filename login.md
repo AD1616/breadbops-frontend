@@ -74,11 +74,9 @@ function logout() {
 }
 
 
-if (sessionStorage.getItem("token") == null) {
-  sessionStorage.setItem("username", "Guest");
-}
 
-else if (sessionStorage.getItem("username") == null) {
+
+if (sessionStorage.getItem("username") == null) {
   sessionStorage.setItem("username", "Guest");
 }
 
