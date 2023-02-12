@@ -19,6 +19,7 @@ function login() {
   const password = document.getElementById("inputPassword").value;
 
   const url = "https://breadbops.gq/authenticate";
+  const getNameUrl = "https://breadbops.gq/api/person/getPersonName";
   
   const options = {
     method: 'POST', 
@@ -32,6 +33,28 @@ function login() {
         "email" : email,
         "password" : password
     })
+  };
+
+  var details = {
+      'email': email
+  };
+
+  var formBody = [];
+  for (var property in details) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(details[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+
+  var myHeaders = new Headers();
+  myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
+
+  var getOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+    body: formBody
   };
 
   // fetch(url, options)
@@ -51,11 +74,16 @@ function login() {
       }
       // Success!!!
       // Redirect to Database location
-      
-      sessionStorage.setItem("username", email);
-      window.location.href = "{{site.baseurl}}/addtoinventory";
 
 
+
+      fetch(getNameUrl, getOptions)
+      .then(response => response.text())
+      .then(text => {
+        console.log(text);
+        sessionStorage.setItem("username", text);
+        window.location.href = "{{site.baseurl}}/addtoinventory";
+      }
   })
 
 
