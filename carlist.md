@@ -29,11 +29,13 @@
 
 
 const email = sessionStorage.getItem("email");
+console.log(email);
+console.log(email == null);
 if (email == null || email == "") {
   document.getElementById("car-input").style.visibility = "hidden";
   document.getElementById("car-input-label").style.visibility = "hidden";
   document.getElementById("list").style.visibility = "hidden";
-  document.getElementById("loggedIn").innerHTML = "Sign in to save a wish list."
+  document.getElementById("loggedIn").innerHTML = "Sign in to save a wish list.";
 
 }
 
