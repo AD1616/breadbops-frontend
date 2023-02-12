@@ -4,11 +4,13 @@
 
 <body>
 
+<h1 id = "loggedIn"> </h1>
+
 <div id = "json-data"> </div>
 
-<label for="email-input">Enter Your Email to see your car list</label>
-<input name="email-input" type="text" id="email-input">
-<button class="button1" onclick="addCar()" id="submit-button">Submit</button>
+<!-- <label for="email-input">Enter Your Email to see your car list</label>
+<input name="email-input" type="text" id="email-input"> -->
+<!-- <button class="button1" onclick="addCar()" id="submit-button">Submit</button> -->
 
 <br>
 
@@ -28,11 +30,18 @@
 document.getElementById("car-input").style.visibility = "hidden";
 document.getElementById("car-input-label").style.visibility = "hidden";
 document.getElementById("list").style.visibility = "hidden";
+
+const email = sessionStorage.getItem("email");
+if (email == null || email == "") {
+  document.getElementById("loggedIn").innerHTML = "Sign in to save a wish list."
+}
+
 // Called to update the CAR LIST
 
 function getCars() {
-  const email = document.getElementById('email-input').value;
-  
+  // const email = document.getElementById('email-input').value;
+
+
   const options = {
       method: 'GET', 
       mode: 'cors', 
@@ -63,6 +72,8 @@ function getCars() {
   document.getElementById("list").style.visibility = "visible";
 
 }
+
+
 
 var myHeaders = new Headers();
 myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
@@ -114,7 +125,8 @@ function addCarFromList(carToAdd) {
 // Updates the Carlist
 
 function addCar() {
-  const email = document.getElementById('email-input').value;
+  // const email = document.getElementById('email-input').value;
+  // const email = sessionStorage.getItem("email");
   const car = document.getElementById('car-input').value;
 
   const url = "https://breadbops.gq/api/person/addCar";
