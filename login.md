@@ -19,7 +19,7 @@ function login() {
   const password = document.getElementById("inputPassword").value;
 
   const url = "https://breadbops.gq/authenticate";
-  const getNameUrl = "https://breadbops.gq/api/person/getPersonName";
+  const getNameUrl = "https://breadbops.gq/api/person/getPersonName"
   
   const options = {
     method: 'POST', 
@@ -75,15 +75,19 @@ function login() {
       // Success!!!
       // Redirect to Database location
 
-
-
       fetch(getNameUrl, getOptions)
-      .then(response => response.text())
-      .then(text => {
-        console.log(text);
-        sessionStorage.setItem("username", text);
-        window.location.href = "{{site.baseurl}}/addtoinventory";
-      }
+        .then(response => response.text())
+        .then(text => {
+          console.log(text);
+          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("username", text);
+          window.location.href = "{{site.baseurl}}/addtoinventory";
+
+        });
+      
+
+
+
   })
 
 
