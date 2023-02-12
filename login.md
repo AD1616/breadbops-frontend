@@ -35,27 +35,8 @@ function login() {
     })
   };
 
-  var details = {
-      'email': email
-  };
 
-  var formBody = [];
-  for (var property in details) {
-    var encodedKey = encodeURIComponent(property);
-    var encodedValue = encodeURIComponent(details[property]);
-    formBody.push(encodedKey + "=" + encodedValue);
-  }
-  formBody = formBody.join("&");
 
-  var myHeaders = new Headers();
-  myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
-
-  var getOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow',
-    body: formBody
-  };
 
   // fetch(url, options)
   //   .then(response => console.log(response.text()))
@@ -75,15 +56,20 @@ function login() {
       // Success!!!
       // Redirect to Database location
 
-      fetch(getNameUrl, getOptions)
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch("https://breadbops.gq/api/person/getPersonName?email=" + email, requestOptions)
         .then(response => response.text())
         .then(text => {
           console.log(text);
           sessionStorage.setItem("email", email);
           sessionStorage.setItem("username", text);
           window.location.href = "{{site.baseurl}}/addtoinventory";
-
-        });
+        })
+        .catch(error => console.log('error', error));
       
 
 
