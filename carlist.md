@@ -36,6 +36,10 @@ if (email == null || email == "") {
   document.getElementById("loggedIn").innerHTML = "Sign in to save a wish list."
 }
 
+else {
+  getCars();
+}
+
 // Called to update the CAR LIST
 
 function getCars() {
