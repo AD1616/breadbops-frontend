@@ -86,6 +86,7 @@ function login() {
 function logout() {
   document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   sessionStorage.setItem("username", "Guest");
+  sessionStorage.setItem("email", null);
   sessionStorage.setItem("token", null);
   window.location.reload();
 
