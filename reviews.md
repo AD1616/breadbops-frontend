@@ -363,11 +363,11 @@ Gama Motors is dedicated to delivering the best service to our customers.
   <span class="input-group-addon"><i class="fa fa-heart"></i></span>
    <select class="form-control" id="stars">
       <option value="N/A">N/A</option>
-      <option value="1star">1</option>
-      <option value="2stars">2</option>
-      <option value="3stars">3</option>
-      <option value="4stars">4</option>
-      <option value="5stars">5</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
     </select>
     </div>
   </div>
@@ -393,7 +393,8 @@ function connect(){
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
-  const stars = document.getElementById('stars').value;
+  const stars = parseInt(document.getElementById('stars').value);
+  console.log(stars);
   const comments = document.getElementById('comments').value;
 
 
