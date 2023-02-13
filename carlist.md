@@ -41,6 +41,10 @@ if (email == null || email == "") {
 
 else {
   getCars();
+
+  document.getElementById("car-input-label").style.visibility = "visible";
+  document.getElementById("car-input").style.visibility = "visible";
+  document.getElementById("list").style.visibility = "visible";
 }
 
 // Called to update the CAR LIST
@@ -74,9 +78,6 @@ function getCars() {
     })
     .catch(error => console.error(error));
   
-  document.getElementById("car-input-label").style.visibility = "visible";
-  document.getElementById("car-input").style.visibility = "visible";
-  document.getElementById("list").style.visibility = "visible";
 
 }
 
