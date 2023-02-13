@@ -13,6 +13,7 @@
         <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Make</th>
                 <th scope="col">Model</th>
