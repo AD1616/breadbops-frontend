@@ -2,6 +2,8 @@
 
 <h2 id="error"> </h2>
 
+<div id="inputs"> 
+
 <label for="inputCarName">Name</label>
 <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
 
@@ -26,7 +28,24 @@ Enter description here...
 
 <button class="button1" onclick="input()">Upload Car</button>
 
+</div> 
+
 <script>
+
+const username = sessionStorage.getItem("username");
+const email = sessionStorage.getItem("email");
+
+console.log(email);
+
+if (email == null || email == "" || username == "Guest") {
+  document.getElementById("inputs").style.visibility = "hidden";
+  document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
+}
+
+else {
+  document.getElementById("inputs").style.visibility = "visible";
+  document.getElementById("error").innerHTML = "Add to inventory.";
+}
 
 function input() {
   const name = document.getElementById("inputCarName").value;
