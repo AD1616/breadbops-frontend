@@ -27,11 +27,12 @@
 
 <script>
 
-
+const name = sessionStorage.getItem("username");
 const email = sessionStorage.getItem("email");
+
 console.log(email);
 console.log(email == null);
-if (email == null || email == "") {
+if (email == null || email == "" || name == "Guest") {
   document.getElementById("car-input").style.visibility = "hidden";
   document.getElementById("car-input-label").style.visibility = "hidden";
   document.getElementById("list").style.visibility = "hidden";
