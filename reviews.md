@@ -450,6 +450,8 @@ function connect(){
     formBody.push(encodedKey + "=" + encodedValue);
   }
   formBody = formBody.join("&");
+
+  console.log(formBody);
   
   const options = {
     method: 'POST', 
