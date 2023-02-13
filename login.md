@@ -19,6 +19,7 @@ function login() {
   const password = document.getElementById("inputPassword").value;
 
   const url = "https://breadbops.gq/authenticate";
+  const getNameUrl = "https://breadbops.gq/api/person/getPersonName"
   
   const options = {
     method: 'POST', 
@@ -33,6 +34,9 @@ function login() {
         "password" : password
     })
   };
+
+
+
 
   // fetch(url, options)
   //   .then(response => console.log(response.text()))
@@ -51,8 +55,29 @@ function login() {
       }
       // Success!!!
       // Redirect to Database location
-      window.location.href = "{{site.baseurl}}/addtoinventory";
+
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch("https://breadbops.gq/api/person/getPersonName?email=" + email, requestOptions)
+        .then(response => response.text())
+        .then(text => {
+          console.log(text);
+          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("username", text);
+          window.location.href = "{{site.baseurl}}/addtoinventory";
+        })
+        .catch(error => console.log('error', error));
+      
+
+
+
   })
+
+
+
 
 
   
@@ -61,38 +86,21 @@ function login() {
 function logout() {
   document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   sessionStorage.setItem("username", "Guest");
+  sessionStorage.setItem("email", null);
   sessionStorage.setItem("token", null);
   window.location.reload();
 
 }
 
-// sleep time expects milliseconds
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
 
-if (sessionStorage.getItem("token") == null) {
+
+
+if (sessionStorage.getItem("username") == null) {
   sessionStorage.setItem("username", "Guest");
 }
 
-else if (sessionStorage.getItem("username") == null) {
-  sessionStorage.setItem("username", "Guest");
-}
 
-else if (sessionStorage.getItem("username" == "{\"timestamp\":\"2023-02-09T07:19:37.229+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"\",\"path\":\"/getUsername\"}")) {
-  sessionStorage.setItem("username", "Guest");
-}
-
-// Usage!
-sleep(500).then(() => {
-  if (sessionStorage.getItem("username")[0] == "{") {
-    console.log("bad username");
-    sessionStorage.setItem("username", "Guest");
-  }
-  document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
-});
-
-
+document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("username") + "!";
 
 
 

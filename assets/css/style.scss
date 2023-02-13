@@ -8,6 +8,7 @@ $white: rgb(254, 254, 254);
 
 * {
   text-decoration: "none";
+  text-shadow: none;
 }
 /* "row style" is flexible size and aligns pictures in center */
 .row {
@@ -36,17 +37,23 @@ h2 {
   color: $red;  
 }
 
+h3 {
+  text-align: center;
+  color: $white;  
+}
+
+
+
 customHead {
   font-size: 2em;
 }
 
 footer {
-  padding-bottom: 2.5rem;
+  padding-bottom: 2%;
   font-family: Verdana, sans-serif;
   justify-content: center;
   color: #ffff;
   background-color:#ad1616;
-
 }
 
 
