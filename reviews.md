@@ -438,7 +438,7 @@ function connect(){
   var details = {
     'name': name,
     'email': email,
-    'phone number' : phone,
+    'phoneNumber' : phone,
     'stars': stars,
     'comments': comments
   };
@@ -450,6 +450,8 @@ function connect(){
     formBody.push(encodedKey + "=" + encodedValue);
   }
   formBody = formBody.join("&");
+
+  console.log(formBody);
   
   const options = {
     method: 'POST', 
