@@ -322,76 +322,97 @@ Gama Motors is dedicated to delivering the best service to our customers.
 
  <script src="https://use.fontawesome.com/a6f0361695.js"></script>
 
-<h2 id="fh2">Leave Gama Motors A Review Or Write A Comment</h2>
 
-<form id="feedback" action="">
-  <div class="pinfo">Personal Information</div>
-  
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-user"></i></span>
-  <input  name="name" placeholder="First and Last Name" id="name" class="form-control"  type="text">
+<h1 id="fh2"></h1>
+
+<div id="reviewInputs">
+
+  <form id="feedback" action="">
+    <div class="pinfo">Personal Information</div>
+    
+  <!-- <div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+    <input  name="name" placeholder="First and Last Name" id="name" class="form-control"  type="text">
+      </div>
     </div>
   </div>
-</div>
 
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-    <input name="email" type="email" id="email" class="form-control" placeholder="Email">
-     </div>
-  </div>
-</div>
+  <div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+      <input name="email" type="email" id="email" class="form-control" placeholder="Email">
+      </div>
+    </div>
+  </div> -->
 
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-  <input  name="phone" placeholder="Phone Number" id="phone" class="form-control"  type="text">
+  <div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+    <input  name="phone" placeholder="Phone Number" id="phone" class="form-control"  type="text">
+      </div>
     </div>
   </div>
-</div>
 
- <div class="pinfo">Rate our Overall Services</div>
-  
+  <div class="pinfo">Rate our Overall Services</div>
 
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-heart"></i></span>
-   <select class="form-control" id="stars">
-      <option value="N/A">N/A</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+
+  <div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+    <select class="form-control" id="stars">
+        <option value="N/A">N/A</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="pinfo">Feedback and Comments</div>
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-  <textarea class="form-control" id="comments" rows="3"></textarea>
+  <div class="pinfo">Feedback and Comments</div>
+  <div class="form-group">
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+    <textarea class="form-control" id="comments" rows="3"></textarea>
+    </div>
+    </div>
   </div>
-  </div>
+
+  <button type="submit" class="btn btn-primary" onclick="connect()" style="background-color:#ad1616">Submit</button>
+
+  </form>
+
 </div>
-
- <button type="submit" class="btn btn-primary" onclick="connect()" style="background-color:#ad1616">Submit</button>
-
-</form>
 
 <script>
 
+const name = sessionStorage.getItem("username");
+const email = sessionStorage.getItem("email");
+
+console.log(email);
+
+if (email == null || email == "" || username == "Guest") {
+  document.getElementById("reviewInputs").style.visibility = "hidden";
+  document.getElementById("fh2").innerHTML = "Sign in to leave a review for Gama Motors!";
+}
+
+else {
+  document.getElementById("reviewsInput").style.visibility = "visible";
+  document.getElementById("fh2").innerHTML = "Leave Gama Motors A Review Or Write A Comment";
+}
+
 function connect(){
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
+  // const name = document.getElementById('name').value;
+  // const email = document.getElementById('email').value;
+
   const phone = document.getElementById('phone').value;
   const stars = parseInt(document.getElementById('stars').value);
   console.log(stars);
@@ -435,6 +456,8 @@ function connect(){
 
   // const url = "https://breadbops.gq/api/person/post?email=" + email +"&password=" + password + "&name=" + name + "&dob=" + dob;
   const url = "https://breadbops.gq/api/reviewInventory/post/";
+
+
 
   var details = {
     'name': name,
