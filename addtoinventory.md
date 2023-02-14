@@ -58,12 +58,15 @@ fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
   .then(response => response.json())
   .then(data => {
     for (const item of data) {
+        console.log(item["name"]);
         if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
           authorized = true;
         }
     }
   })
   .catch(error => console.error(error));
+
+console.log(authorized);
 
 if (email == null || email == "" || username == "Guest") {
   document.getElementById("inputs").style.visibility = "hidden";
