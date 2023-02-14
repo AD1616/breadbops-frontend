@@ -496,38 +496,6 @@ function connect(){
   
 }
 
-var myHeaders = new Headers();
-myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
-
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-
-fetch("https://breadbops.gq/api/reviewInventory/all", requestOptions)
-  .then(response => response.text())
-  .then(result => {
-    const data = JSON.parse(result);
-    let reviewsDisplay = document.getElementById("Name");
-
-    for (i=0; i < data.length; i++) {
-      var li = document.createElement('li');
-      var a = document.createElement('a');
-      a.setAttribute('href', '#');
-      a.innerHTML = data[i]["name"];
-      li.appendChild(a);
-      li.setAttribute('class', 'reviews');
-
-      reviewsDisplay.appendChild(li);
-    } 
-  })
-
-  .catch(error => console.log('error', error));
-
-
-
 </script>
 
 
