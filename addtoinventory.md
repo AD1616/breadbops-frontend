@@ -1,6 +1,6 @@
-<h1 class="text-center">Add to car inventory</h1>
+<h1 id="error"> </h1>
 
-<h2 id="error"> </h2>
+<div id="inputs"> 
 
 <label for="inputCarName">Name</label>
 <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
@@ -26,7 +26,68 @@ Enter description here...
 
 <button class="button1" onclick="input()">Upload Car</button>
 
+</div> 
+
 <script>
+
+let authorized = false;
+
+const options = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'no-cache', 
+    credentials: 'include', 
+    headers: {
+        'Content-Type': 'application/json'
+        
+    },
+};
+
+// Generates car list for particular email
+
+
+
+const username = sessionStorage.getItem("username");
+const email = sessionStorage.getItem("email");
+
+console.log(email);
+
+if (email == null || email == "" || username == "Guest") {
+  document.getElementById("inputs").style.visibility = "hidden";
+  document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
+}
+
+else {
+  fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
+    .then(response => response.json())
+    .then(data => {
+      for (const item of data) {
+          console.log(item["name"]);
+          if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
+            authorized = true;
+          }
+      }
+
+      console.log(authorized);
+
+
+      if (authorized) {
+        document.getElementById("inputs").style.visibility = "visible";
+        document.getElementById("error").innerHTML = "Add to inventory.";
+      }
+
+      else {
+        document.getElementById("inputs").style.visibility = "hidden";
+        document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
+      }
+      
+
+    })
+    .catch(error => console.error(error));
+}
+
+
+
 
 function input() {
   const name = document.getElementById("inputCarName").value;

@@ -399,7 +399,7 @@ const email = sessionStorage.getItem("email");
 
 console.log(email);
 
-if (email == null || email == "" || username == "Guest") {
+if (email == null || email == "" || name == "Guest") {
   document.getElementById("reviewInputs").style.visibility = "hidden";
   document.getElementById("fh2").innerHTML = "Sign in to leave a review for Gama Motors!";
 }

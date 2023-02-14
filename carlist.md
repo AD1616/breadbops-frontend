@@ -27,11 +27,12 @@
 
 <script>
 
-
+const name = sessionStorage.getItem("username");
 const email = sessionStorage.getItem("email");
+
 console.log(email);
 console.log(email == null);
-if (email == null || email == "") {
+if (email == null || email == "" || name == "Guest") {
   document.getElementById("car-input").style.visibility = "hidden";
   document.getElementById("car-input-label").style.visibility = "hidden";
   document.getElementById("list").style.visibility = "hidden";
@@ -41,6 +42,10 @@ if (email == null || email == "") {
 
 else {
   getCars();
+
+  document.getElementById("car-input-label").style.visibility = "visible";
+  document.getElementById("car-input").style.visibility = "visible";
+  document.getElementById("list").style.visibility = "visible";
 }
 
 // Called to update the CAR LIST
@@ -74,9 +79,6 @@ function getCars() {
     })
     .catch(error => console.error(error));
   
-  document.getElementById("car-input-label").style.visibility = "visible";
-  document.getElementById("car-input").style.visibility = "visible";
-  document.getElementById("list").style.visibility = "visible";
 
 }
 
