@@ -63,27 +63,30 @@ fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
           authorized = true;
         }
     }
+
+    console.log(authorized);
+
+    if (email == null || email == "" || username == "Guest") {
+      document.getElementById("inputs").style.visibility = "hidden";
+      document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
+    }
+
+    else {
+      if (authorized) {
+        document.getElementById("inputs").style.visibility = "visible";
+        document.getElementById("error").innerHTML = "Add to inventory.";
+      }
+
+      else {
+        document.getElementById("inputs").style.visibility = "hidden";
+        document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
+      }
+    }
+
   })
   .catch(error => console.error(error));
 
-console.log(authorized);
 
-if (email == null || email == "" || username == "Guest") {
-  document.getElementById("inputs").style.visibility = "hidden";
-  document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
-}
-
-else {
-  if (authorized) {
-    document.getElementById("inputs").style.visibility = "visible";
-    document.getElementById("error").innerHTML = "Add to inventory.";
-  }
-
-  else {
-    document.getElementById("inputs").style.visibility = "hidden";
-    document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
-  }
-}
 
 function input() {
   const name = document.getElementById("inputCarName").value;
