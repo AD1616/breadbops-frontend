@@ -54,24 +54,25 @@ const email = sessionStorage.getItem("email");
 
 console.log(email);
 
-fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
-  .then(response => response.json())
-  .then(data => {
-    for (const item of data) {
-        console.log(item["name"]);
-        if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
-          authorized = true;
-        }
-    }
+if (email == null || email == "" || username == "Guest") {
+  document.getElementById("inputs").style.visibility = "hidden";
+  document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
+}
 
-    console.log(authorized);
+else {
+  fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
+    .then(response => response.json())
+    .then(data => {
+      for (const item of data) {
+          console.log(item["name"]);
+          if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
+            authorized = true;
+          }
+      }
 
-    if (email == null || email == "" || username == "Guest") {
-      document.getElementById("inputs").style.visibility = "hidden";
-      document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
-    }
+      console.log(authorized);
 
-    else {
+
       if (authorized) {
         document.getElementById("inputs").style.visibility = "visible";
         document.getElementById("error").innerHTML = "Add to inventory.";
@@ -81,10 +82,12 @@ fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
         document.getElementById("inputs").style.visibility = "hidden";
         document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
       }
-    }
+      
 
-  })
-  .catch(error => console.error(error));
+    })
+    .catch(error => console.error(error));
+}
+
 
 
 
