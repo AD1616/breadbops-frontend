@@ -162,7 +162,7 @@ function login() {
           console.log(text);
           sessionStorage.setItem("email", email);
           sessionStorage.setItem("username", text);
-          window.location.href = "{{site.baseurl}}/addtoinventory";
+          window.location.href = "{{site.baseurl}}/";
         })
         .catch(error => console.log('error', error));
       
