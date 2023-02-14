@@ -47,6 +47,13 @@ const options = {
 
 // Generates car list for particular email
 
+
+
+const username = sessionStorage.getItem("username");
+const email = sessionStorage.getItem("email");
+
+console.log(email);
+
 fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
   .then(response => response.json())
   .then(data => {
@@ -57,11 +64,6 @@ fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
     }
   })
   .catch(error => console.error(error));
-
-const username = sessionStorage.getItem("username");
-const email = sessionStorage.getItem("email");
-
-console.log(email);
 
 if (email == null || email == "" || username == "Guest") {
   document.getElementById("inputs").style.visibility = "hidden";
