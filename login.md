@@ -1,4 +1,4 @@
-<form>
+<div class="login-container">
   <div class="input-field">
     <input id="inputEmail" type="email" required>
     <label>Email</label>
@@ -8,9 +8,7 @@
     <label>Password</label>
   </div>
   <button class="button1" type="submit" onclick="login()">Login</button>
-
-
-</form> 
+</div> 
 
 <button class="button1" onclick="logout()">Logout</button>
 
@@ -23,7 +21,7 @@
   box-sizing: border-box;
 }
 
-form {
+.login-container {
   max-width: 480px;
   margin: 50px auto;
   background: #fff;
