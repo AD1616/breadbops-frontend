@@ -32,6 +32,32 @@ Enter description here...
 
 <script>
 
+let authorized = false;
+
+const options = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'no-cache', 
+    credentials: 'include', 
+    headers: {
+        'Content-Type': 'application/json'
+        
+    },
+};
+
+// Generates car list for particular email
+
+fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
+  .then(response => response.json())
+  .then(data => {
+    for (const item of data) {
+        if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
+          authorized = true;
+        }
+    }
+  })
+  .catch(error => console.error(error));
+
 const username = sessionStorage.getItem("username");
 const email = sessionStorage.getItem("email");
 
@@ -43,8 +69,15 @@ if (email == null || email == "" || username == "Guest") {
 }
 
 else {
-  document.getElementById("inputs").style.visibility = "visible";
-  document.getElementById("error").innerHTML = "Add to inventory.";
+  if (authorized) {
+    document.getElementById("inputs").style.visibility = "visible";
+    document.getElementById("error").innerHTML = "Add to inventory.";
+  }
+
+  else {
+    document.getElementById("inputs").style.visibility = "hidden";
+    document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
+  }
 }
 
 function input() {
