@@ -1,10 +1,10 @@
 <div id="loginForm" class="login-container">
   <div class="input-field">
-    <input id="inputEmail" type="email" required>
+    <input autocomplete="off" id="inputEmail" type="email" required>
     <label>Email</label>
   </div>
   <div class="input-field">
-    <input id="inputPassword" type="password" required>
+    <input autocomplete="off" id="inputPassword" type="password" required>
     <label>Password</label>
   </div>
   <button class="button1" type="submit" onclick="login()">Login</button>

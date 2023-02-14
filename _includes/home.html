@@ -18,10 +18,21 @@
 
 <div class="navbar">
 
-    <a style="float:left;" id="user"> </a>
+    <!-- <a style="float:left;" id="user"> </a> -->
+
+      <div style="float:left;" class="dropdown">
+        <button id="user" class="dropbtn"> Account
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="{{site.baseurl}}/signup">Sign Up</a>
+            <a href="{{site.baseurl}}/login">Login/Logout</a>
+        </div>
+    </div>
+
     <a style="float:left;" href="{{site.baseurl}}/">Home</a>
 
-    <div class="dropdown">
+    <div style="float:right;" class="dropdown">
         <button class="dropbtn"> Admin
         <i class="fa fa-caret-down"></i>
         </button>
@@ -31,17 +42,7 @@
         </div>
     </div>
 
-    <div class="dropdown">
-        <button class="dropbtn"> Account
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="{{site.baseurl}}/signup">Sign Up</a>
-            <a href="{{site.baseurl}}/login">Login/Logout</a>
-        </div>
-    </div>
-
-    <div class="dropdown">
+    <div style="float:right;" class="dropdown">
         <button class="dropbtn"> Browse
             <i class="fa fa-caret-down"></i>
         </button>
@@ -88,7 +89,6 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 
 /* The dropdown container */
 .dropdown {
-  float: right;
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
   border: none; 
   outline: none;
   color: white;
-  padding: 20px 30px;
+  padding: 25px 30px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
