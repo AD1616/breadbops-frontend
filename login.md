@@ -1,4 +1,4 @@
-<div class="login-container">
+<div id="loginForm" class="login-container">
   <div class="input-field">
     <input id="inputEmail" type="email" required>
     <label>Email</label>
@@ -10,7 +10,7 @@
   <button class="button1" type="submit" onclick="login()">Login</button>
 </div> 
 
-<button class="button1" onclick="logout()">Logout</button>
+<button id="logoutButton" class="button1" onclick="logout()">Logout</button>
 
 
 
@@ -95,6 +95,19 @@ h2 {
 
 
 <script>
+
+const username = sessionStorage.getItem("username");
+const email = sessionStorage.getItem("email");
+
+if (email == null || email == "" || username == "Guest") {
+  document.getElementById("loginForm").style.visibility = "visible";
+  document.getElementById("logoutButton").style.visibility = "hidden";
+}
+
+else {
+  document.getElementById("loginForm").style.visibility = "hidden";
+  document.getElementById("logoutButton").style.visibility = "visible";
+}
 
 function login() {
   const email = document.getElementById("inputEmail").value;

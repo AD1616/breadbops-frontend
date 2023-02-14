@@ -1,6 +1,4 @@
-<h1 class="text-center">Add to car inventory</h1>
-
-<h2 id="error"> </h2>
+<h1 id="error"> </h1>
 
 <div id="inputs"> 
 
