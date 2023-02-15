@@ -22,7 +22,7 @@ input[type=text]:focus {
   border: none;
   color: white;
   padding: 15px 32px;
-  text-align: center;
+  text-align: center;   
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -79,7 +79,7 @@ const table = document.getElementById('idk');
 
 </script>
 ### Car Models for Specific Year
-<a href="{{site.baseurl}}/frq1">reset</a>
+<a href="{{site.baseurl}}/models">reset</a>
 
 <body> 
 
