@@ -20,8 +20,10 @@
                 <th scope="col">Year</th>
                 <th scope="col">Description</th>
                 <th scope="col">Image</th>
-                <button class="btn btn-danger btn-sm">Delete</button>
-                <button class="btn btn-primary btn-sm">Update</button>
+                <th>
+                <button class="btn btn-danger btn-sm">Delete</button></th>
+                <th>
+                <button class="btn btn-primary btn-sm">Update</button></th>
               </tr>
             </thead>
             <tbody id="table_body">
