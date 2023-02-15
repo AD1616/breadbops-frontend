@@ -22,6 +22,8 @@ fetch("https://breadbops.gq/api/carInventory/all").then((data)=>{
         <td>${values.year}</td>
         <td>${values.description}</td>
         <td>${values.image}</td>
+        <td>
+                <a th.href="@{'https://breadbops.gq/api/carInventory/delete/' + {values.id}}" class="btn btn-danger btn-sm">Delete</a></td>
       </tr>`;
     });
     document.getElementById("table_body").innerHTML=tableData;
