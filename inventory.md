@@ -13,13 +13,15 @@
         <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
-                <th scope="col">Id</th>
+                <th scope="row">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Make</th>
                 <th scope="col">Model</th>
                 <th scope="col">Year</th>
                 <th scope="col">Description</th>
                 <th scope="col">Image</th>
+                <button class="btn btn-danger btn-sm">Delete</button>
+                <button class="btn btn-primary btn-sm">Update</button>
               </tr>
             </thead>
             <tbody id="table_body">
