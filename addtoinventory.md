@@ -30,7 +30,8 @@ Enter description here...
 
 <script>
 
-let authorized = false;
+// let authorized = false;
+let authorized = true;
 
 const options = {
     method: 'GET', 
@@ -71,10 +72,10 @@ const options = {
 //       console.log(authorized);
 
 
-//       if (authorized) {
-//         document.getElementById("inputs").style.visibility = "visible";
-//         document.getElementById("error").innerHTML = "Add to inventory.";
-//       }
+      if (authorized) {
+        document.getElementById("inputs").style.visibility = "visible";
+        document.getElementById("error").innerHTML = "Add to inventory.";
+      }
 
 //       else {
 //         document.getElementById("inputs").style.visibility = "hidden";
@@ -119,9 +120,9 @@ function input() {
   
   const options = {
     method: 'POST', 
-    mode: 'cors', // no-cors, *cors, same-origin
+    // mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'include', // include, *same-origin, omit
+    // credentials: 'include', // include, *same-origin, omit
     headers: {
       // 'Content-Type': 'application/json'
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
