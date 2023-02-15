@@ -15,6 +15,7 @@ fetch("https://breadbops.gq/api/carInventory/all").then((data)=>{
     let tableData="";
     objectData.map((values)=>{
         tableData+=`<tr>
+        <td>${values.id}</td>
         <td>${values.name}</td>
         <td>${values.make}</td>
         <td>${values.model}</td>
