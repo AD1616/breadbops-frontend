@@ -1,4 +1,6 @@
 <head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
   img{
     width:100px;
@@ -20,10 +22,10 @@
                 <th scope="col">Year</th>
                 <th scope="col">Description</th>
                 <th scope="col">Image</th>
-                <th scope="col">
+                <!-- <th scope="col">
                 <button class="btn btn-danger btn-sm">Delete</button></th>
                 <th scope="col">
-                <button class="btn btn-primary btn-sm">Update</button></th>
+                <button class="btn btn-primary btn-sm">Update</button></th> -->
               </tr>
             </thead>
             <tbody id="table_body">
