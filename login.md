@@ -77,19 +77,7 @@ h2 {
   cursor: pointer;
 }
 
-.button1 {
-  background: transparent;
-  border: none;
-  border-radius: 12px;
-  color: #ad1616; 
-  font-size: 3em;
-}
 
-.button1:hover {
-  transition-duration: 1s;
-  background-color: #ad1616;
-  color: white;
-}
 
 </style>
 
