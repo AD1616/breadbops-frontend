@@ -1,4 +1,6 @@
 <head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 <style>
   img{
     width:100px;
@@ -13,7 +15,7 @@
         <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
-                <th scope="col">Id</th>
+                <th scope="row">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Make</th>
                 <th scope="col">Model</th>
