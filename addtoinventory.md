@@ -116,8 +116,10 @@ function input() {
   }
   formBody = formBody.join("&");
 
-  console.log(formBody);
-  
+  // console.log(url);
+  // console.log(formBody);
+  // console.log(authorized);
+
   const options = {
     method: 'POST', 
     // mode: 'cors', // no-cors, *cors, same-origin
@@ -130,6 +132,11 @@ function input() {
     body: formBody
   };
 
+  console.log(url);
+  console.log(formBody);
+  console.log(authorized);
+  console.log(options);
+  
   fetch(url, options)
     .then(response => {
       if (!response.ok) {
