@@ -1,107 +1,15 @@
-<h1 id="error"> </h1>
-
-<div id="inputs"> 
-
-<label for="inputCarName">Name</label>
-<input id="inputCarName" type="text" name="inputCarName" value=${objcarupdate.name}" /><br>
-
-<label for="inputMake">Make</label>
-<input id="inputMake" type="text" name="inputMake" value=${objcarupdate.make} autocomplete="off" /><br>
-
-<label for="inputModel">Model</label>
-<input id="inputModel" type="text" name="inputModel" value=${objcarupdate.model} autocomplete="off" /><br>
-
-<label for="inputYear">Year</label>
-<input id="inputYear" type="number" name="inputYear" value=${objcarupdate.year} autocomplete="off" /><br>
-
-<label for="inputCarDescription">Description</label>
-<textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">${objcarupdate.description}
-Enter description here...
-</textarea><br>
-
-<p><label for="img">Upload Image</label>
-<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
- 
-
-<button class="button1" onclick="back()">Back</button>
-<button class="button1" onclick="input()">Update</button>
-
-</div> 
-
-<script>
-
-// let authorized = false;
-let authorized = true;
-
-const options = {
-    method: 'GET', 
-    // mode: 'cors', 
-    cache: 'no-cache', 
-    // credentials: 'include', 
-    headers: {
-        'Content-Type': 'application/json'
-        
-    },
-};
-
-function input() {
-  const name = document.getElementById("inputCarName").value;
-  const image = "Temp";
-  const description = document.getElementById("inputCarDescription").value;
-  const make = document.getElementById("inputMake").value;
-  const model = document.getElementById("inputModel").value;
-  const year = document.getElementById("inputYear").value;
-
-  const url = "https://breadbops.gq/api/carInventory/updateCar/"+${objcarupdate.id};
-
-  var details = {
-      'name': name,
-      'imageLink': image,
-      'description': description,
-      'make': make,
-      'model': model,
-      'year': year};
-
-  var formBody = [];
-  for (var property in details) {
-    var encodedKey = encodeURIComponent(property);
-    var encodedValue = encodeURIComponent(details[property]);
-    formBody.push(encodedKey + "=" + encodedValue);
-  }
-  formBody = formBody.join("&");
-
-  console.log(formBody);
-  
-  const options = {
-    method: 'POST', 
-    // mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    // credentials: 'include', // include, *same-origin, omit
-    headers: {
-      // 'Content-Type': 'application/json'
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    },
-    body: formBody
-  };
-
-  fetch(url, options)
-    .then(response => {
-      if (!response.ok) {
-        if (response.status === 401) {
-          throw new Error("You don't have permission");
-        } else {
-          throw new Error("Something went wrong");
-        }
-      }
-    })
-    .then(result => console.log(result))
-    .catch(error => document.getElementById("error").innerHTML = error.message);
-  
-}
+<head>
+<style>
+  img{
+    width:100px;
+    }
+</style>
+</head>
+<body>
+<script src="carupdate.js"></script>
+</body>
 
 
-
-</script>
 
 <style>
 #input {
