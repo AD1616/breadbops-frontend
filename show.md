@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="styled-table">
     <thead class="table-dark">
         <tr>
         <th scope="col">Id</th>
