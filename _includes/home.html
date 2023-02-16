@@ -18,37 +18,36 @@
 
 <div class="navbar">
 
-    <a style="float:left;" id="user"> </a>
+    <!-- <a style="float:left;" id="user"> </a> -->
+
+    <div style="float:left;" class="dropdown">
+      <button id="user" class="dropbtn"></button>
+      <div class="dropdown-content">
+          <a href="{{site.baseurl}}/signup">Sign Up</a>
+          <a href="{{site.baseurl}}/login">Login/Logout</a>
+      </div>
+    </div>
+
     <a style="float:left;" href="{{site.baseurl}}/">Home</a>
 
-    <div class="dropdown">
-        <button class="dropbtn"> Admin
-        <i class="fa fa-caret-down"></i>
-        </button>
+    <div style="float:right;" class="dropdown">
+        <button class="dropbtn"> Admin </button>
         <div class="dropdown-content">
         <a href="{{site.baseurl}}/addtoinventory">Add Car</a>
+        <a href="{{site.baseurl}}/carupdate">Update Car</a>
         <a href="{{site.baseurl}}/inventory">Inventory</a>
+        <a href="{{site.baseurl}}/show">All Reviews</a>
         </div>
     </div>
 
-    <div class="dropdown">
-        <button class="dropbtn"> User
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="{{site.baseurl}}/signup">Sign Up</a>
-            <a href="{{site.baseurl}}/login">Login/Logout</a>
-        </div>
-    </div>
-
-    <div class="dropdown">
-        <button class="dropbtn"> Anonymous
-            <i class="fa fa-caret-down"></i>
-        </button>
+    <div style="float:right;" class="dropdown">
+        <button class="dropbtn"> Browse </button>
         <div class="dropdown-content">
             <a href="{{site.baseurl}}/models"> Models </a>
             <a href="{{site.baseurl}}/search">Search</a>
             <a href="{{site.baseurl}}/carlist">Car List</a>
+            <a href="{{site.baseurl}}/reviews">Reviews</a>
+
         </div>
     </div>
 
@@ -71,7 +70,6 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 /* Navbar container */
 .navbar {
   overflow: hidden;
-  background-color: #333;
   font-family: Garamond;
 }
 
@@ -86,7 +84,6 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 
 /* The dropdown container */
 .dropdown {
-  float: right;
   overflow: hidden;
 }
 
@@ -96,7 +93,7 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
   border: none; 
   outline: none;
   color: white;
-  padding: 20px 30px;
+  padding: 25px 30px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
@@ -112,13 +109,16 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 100px;
+  /* width: 100%; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 4;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
+  font-size: 25px;
+  outline: 1px solid black;
   float: none;
   color: black;
   padding: 12px 10px;

@@ -1,101 +1,18 @@
-<div id="loginForm" class="login-container">
-  <div class="input-field">
-    <input autocomplete="off" id="inputEmail" type="email" required>
-    <label>Email</label>
-  </div>
-  <div class="input-field">
-    <input autocomplete="off" id="inputPassword" type="password" required>
-    <label>Password</label>
-  </div>
-  <button class="button1" type="submit" onclick="login()">Login</button>
-</div> 
+<h1 id="user"> </h1>
 
-<button id="logoutButton" class="button1" onclick="logout()">Logout</button>
+<label for="inputEmail">Email</label>
+<input id="inputEmail" type="text" name="inputEmail" autocomplete="off" />
 
+ 
+<label for="inputPassword">Password</label>
+<input id="inputPassword" type="password" name="inputPassword" />
 
+<button class="button1" onclick="login()">Login</button>
 
-
-<style>
-
-* {
-  box-sizing: border-box;
-}
-
-.login-container {
-  max-width: 480px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
-}
-
-h2 {
-  margin: 0;
-  padding: 0 0 30px;
-  text-align: center;
-  font-size: 40px;
-  color: #333;
-}
-
-.input-field {
-  position: relative;
-  margin: 30px 0;
-}
-
-.input-field input {
-  width: 100%;
-  padding: 20px 0;
-  border: none;
-  border-bottom: 2px solid #999;
-  outline: none;
-  font-size: 24px;
-}
-
-.input-field label {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  font-size: 24px;
-  color: #999;
-  pointer-events: none;
-  transition: all 0.5s ease;
-}
-
-.input-field input:focus + label, .input-field input:valid + label {
-  top: -25px;
-  left: 0;
-  font-size: 20px;
-  color: #ad1616;
-}
-
-.button {
-  background-color: #ad1616;
-  color: white;
-  text-align: center;
-  transition-duration: 1s;
-  cursor: pointer;
-}
-
-
-
-</style>
+<button class="button1" onclick="logout()">Logout</button>
 
 
 <script>
-
-const username = sessionStorage.getItem("username");
-const email = sessionStorage.getItem("email");
-
-if (email == null || email == "" || username == "Guest") {
-  document.getElementById("loginForm").style.visibility = "visible";
-  document.getElementById("logoutButton").style.visibility = "hidden";
-}
-
-else {
-  document.getElementById("loginForm").style.visibility = "hidden";
-  document.getElementById("logoutButton").style.visibility = "visible";
-}
 
 function login() {
   const email = document.getElementById("inputEmail").value;
@@ -150,7 +67,7 @@ function login() {
           console.log(text);
           sessionStorage.setItem("email", email);
           sessionStorage.setItem("username", text);
-          window.location.href = "{{site.baseurl}}/";
+          window.location.href = "{{site.baseurl}}/addtoinventory";
         })
         .catch(error => console.log('error', error));
       
@@ -188,3 +105,47 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 
 
 </script>
+
+<style>
+#input {
+    text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+}
+
+
+a:focus,
+a:hover {
+  text-decoration-color: black;
+}
+
+input {
+  font-size: 2em;
+  padding: 0.2em 0.5em;
+}   
+
+label {
+    font-size: 3em;
+}
+
+.button {
+  background-color: #ad1616;
+  color: white;
+  text-align: center;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+.button1 {
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  color: #ad1616; 
+  font-size: 5em;
+}
+
+.button1:hover {
+  transition-duration: 1s;
+  background-color: #ad1616;
+  color: white;
+}
+
+</style>

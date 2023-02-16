@@ -24,6 +24,7 @@ $white: rgb(254, 254, 254);
 
 body {
   text-align: center;
+  background: rgba(182, 170, 170, 0.99);
   color: $red;
 }
 
@@ -54,6 +55,20 @@ footer {
   justify-content: center;
   color: #ffff;
   background-color:#ad1616;
+}
+
+.button1 {
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  color: #ad1616; 
+  font-size: 3em;
+}
+
+.button1:hover {
+  transition-duration: 1s;
+  background-color: #ad1616;
+  color: white;
 }
 
 
