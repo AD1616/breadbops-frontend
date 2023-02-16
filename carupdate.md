@@ -36,6 +36,7 @@ fetch(url).then((data)=>{
     document.getElementById("body").innerHTML=carstring;
 })
   }
+  </script>
 </head>
 <body onload="carupdate()">
 
