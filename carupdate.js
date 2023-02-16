@@ -20,4 +20,8 @@ fetch(url).then((data)=>{
     console.log(objectData.name);
     console.log(objectData.model);
     document.getElementById('inputCarName').value=objectData.name;
+    document.getElementById('inputMake').value=objectData.make;
+    document.getElementById('inputModel').value=objectData.model;
+    document.getElementById('inputYear').value=objectData.year;
+    document.getElementById('inputCarDescription').value=objectData.description;
 })

@@ -33,7 +33,7 @@
 
     <button class="button1" onclick="input()">Upload Car</button>
     </div>
-  </div>
+  
   <script src="carupdate.js"></script>
 </body>
 
