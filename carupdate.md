@@ -28,7 +28,7 @@ Enter description here...
 
 </div> 
   
-  <script src="carupdate.js">
+  <script src="carupdate.js"
     let authorized = false;
 
     const options = {
@@ -85,7 +85,7 @@ Enter description here...
 
 
     function input() {
-      console.log("in upcar");
+      console.log("in input");
       const name = document.getElementById("inputCarName").value;
       const image = "Temp";
       const description = document.getElementById("inputCarDescription").value;
