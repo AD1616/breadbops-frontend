@@ -1,39 +1,32 @@
-<head>
-<style>
-  img{
-    width:100px;
-    }
-</style>
-
-</head>
-<body>
 <h1 id="error"> </h1>
-<h1 class="heading">Update Car</h1>
-  <div id="inputs">
-    <label for="inputCarName">Name</label>
-    <input id="inputCarName" type="text" name="inputCarName"/><br>
 
-    <label for="inputMake">Make</label>
-    <input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
+<div id="inputs"> 
 
-    <label for="inputModel">Model</label>
-    <input id="inputModel" type="text" name="inputModel" autocomplete="off" /><br>
+<label for="inputCarName">Name</label>
+<input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
 
-    <label for="inputYear">Year</label>
-    <input id="inputYear" type="number" name="inputYear" autocomplete="off" /><br>
+<label for="inputMake">Make</label>
+<input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
 
-    <label for="inputCarDescription">Description</label>
-    <textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
-    Enter description here...
-    </textarea><br>
+<label for="inputModel">Model</label>
+<input id="inputModel" type="text" name="inputModel" autocomplete="off" /><br>
 
-    <p><label for="img">Upload Image</label>
-    <input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
-    
+<label for="inputYear">Year</label>
+<input id="inputYear" type="number" name="inputYear" autocomplete="off" /><br>
+
+<label for="inputCarDescription">Description</label>
+<textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
+Enter description here...
+</textarea><br>
+
+<!-- <p><label for="img">Upload Image</label>
+<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br> -->
+ 
 
 
-    <button class="button1" onclick="upcar()">Upload Car</button>
-    </div>
+<button class="button1" onclick="input()">Upload Car</button>
+
+</div> 
   
   <script src="carupdate.js">
     let authorized = false;
@@ -91,7 +84,7 @@
     }
 
 
-    function upcar() {
+    function input() {
       console.log("in upcar");
       const name = document.getElementById("inputCarName").value;
       const image = "Temp";
@@ -156,7 +149,7 @@
   }
 
   </script>
-</body>
+<!-- </body> -->
 
 
 <style>

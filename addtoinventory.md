@@ -19,8 +19,8 @@
 Enter description here...
 </textarea><br>
 
-<p><label for="img">Upload Image</label>
-<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
+<!-- <p><label for="img">Upload Image</label>
+<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br> -->
  
 
 
@@ -89,7 +89,7 @@ else {
 
 function input() {
   const name = document.getElementById("inputCarName").value;
-  const image = "Temp";
+  // const image = "Temp";
   const description = document.getElementById("inputCarDescription").value;
   const make = document.getElementById("inputMake").value;
   const model = document.getElementById("inputModel").value;
@@ -99,7 +99,7 @@ function input() {
 
   var details = {
       'name': name,
-      'imageLink': image,
+      // 'imageLink': image,
       'description': description,
       'make': make,
       'model': model,
@@ -133,7 +133,7 @@ function input() {
   console.log(formBody);
   console.log(authorized);
   console.log(options);
-  
+
   fetch(url, options)
     .then(response => {
       if (!response.ok) {
