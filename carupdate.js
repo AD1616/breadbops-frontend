@@ -1,8 +1,8 @@
 var myHeaders = new Headers();
 myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
 
-var qs = new Querystring();
-var carId = qs.get("carid");
+var carId = GetURLParameter('carid');
+
 
 url = "https://breadbops.gq/api/carInventory/" + carId;
 var requestOptions = {
