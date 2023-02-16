@@ -1,4 +1,4 @@
-# Car Models
+# Car Specs
 
 <style>
 input[type=text] {
@@ -34,7 +34,7 @@ input[type=text]:focus {
 
 <script>
 
-let table = document.getElemenetById("idk");
+let table = document.getElementById("idk");
 
 function getYear(){
     let inputYear = document.getElementById("inputYear").value;
@@ -46,33 +46,40 @@ function getBrand(){
 }
 
 
-function isLeapYear(brandparam, yearparam) {
-    
-    result = document.getElementById("isLeapYearResult");
-    console.log(yearparam);
-    console.log(brandparam);
+function getSpec() {
+     const options = {
+      method: 'GET', 
+      mode: 'cors', 
+      cache: 'no-cache', 
+      credentials: 'include', 
+      headers: {
+          'Content-Type': 'application/json'
+          
+      },
+  };
+    result = document.getElementById("getSpecResult");
+    // console.log(yearparam);
+    // console.log(brandparam);
     // Fetch data from API
-    fetch('https://breadbops.gq/api/calendar/fetchCars/' + brandparam + "/" + yearparam)
+    fetch('https://breadbops.gq/api/specs/makes', options)
     .then(response => response.json())
-    .then(data => {
+    .then(data => console.log(data))
+    //  {
 
-const table = document.getElementById('idk');
-        while (table.rows.length > 1) {
-          table.deleteRow(-1);
-        }
-        console.log(data);
-        for (const car of data.Results) {
-          const row = table.insertRow(-1);
-          row.insertCell(-1).innerHTML = car.Make_ID;
-          row.insertCell(-1).innerHTML = car.Model_ID;
-          row.insertCell(-1).innerHTML = car.Make_Name;
-          row.insertCell(-1).innerHTML = car.Model_Name;
-        }
+// const table = document.getElementById('idk');
+//         while (table.rows.length > 1) {
+//           table.deleteRow(-1);
+//         }
+//         console.log(data);
+//         for (const car of data.Results) {
+//           const row = table.insertRow(-1);
+//           row.insertCell(-1).innerHTML = car.name;
+//           row.insertCell(-1).innerHTML = car.id;
+//         }
 
-        result.innerHTML =  yearparam + brandparam + data.Results;
+//         result.innerHTML =  yearparam + brandparam + data.Results;
 
-    })
-    .catch(console.log("error"))
+//     })
 }
 
 
@@ -80,13 +87,13 @@ const table = document.getElementById('idk');
 
 </script>
 ### Car Models for Specific Year
-<a href="{{site.baseurl}}/models">reset</a>
+<a href="{{site.baseurl}}/spec">reset</a>
 
 <body> 
 
 <input type="text" name="search" id="inputBrand" placeholder="Brand">
 <input type="text" name="search" id="inputYear" placeholder="Year">
-<button class="button" id= "button" onclick="isLeapYear(getBrand(), getYear())">Go</button>
+<button class="button" id= "button" onclick="getSpec()">Go</button>
 <table id="idk"></table>
 
 </body>
