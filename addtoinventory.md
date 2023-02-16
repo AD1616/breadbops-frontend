@@ -19,8 +19,8 @@
 Enter description here...
 </textarea><br>
 
-<p><label for="img">Upload Image</label>
-<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
+<!-- <p><label for="img">Upload Image</label>
+<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br> -->
  
 
 
@@ -42,8 +42,6 @@ const options = {
         
     },
 };
-
-// Generates car list for particular email
 
 
 
@@ -91,7 +89,7 @@ else {
 
 function input() {
   const name = document.getElementById("inputCarName").value;
-  const image = "Temp";
+  // const image = "Temp";
   const description = document.getElementById("inputCarDescription").value;
   const make = document.getElementById("inputMake").value;
   const model = document.getElementById("inputModel").value;
@@ -101,7 +99,7 @@ function input() {
 
   var details = {
       'name': name,
-      'imageLink': image,
+      // 'imageLink': image,
       'description': description,
       'make': make,
       'model': model,
@@ -115,8 +113,10 @@ function input() {
   }
   formBody = formBody.join("&");
 
-  console.log(formBody);
-  
+  // console.log(url);
+  // console.log(formBody);
+  // console.log(authorized);
+
   const options = {
     method: 'POST', 
     mode: 'cors', // no-cors, *cors, same-origin
@@ -128,6 +128,11 @@ function input() {
     },
     body: formBody
   };
+
+  console.log(url);
+  console.log(formBody);
+  console.log(authorized);
+  console.log(options);
 
   fetch(url, options)
     .then(response => {
