@@ -85,7 +85,7 @@ Enter description here...
 
 
     function input() {
-      console.log("in upcar");
+      console.log("in input");
       const name = document.getElementById("inputCarName").value;
       const image = "Temp";
       const description = document.getElementById("inputCarDescription").value;
@@ -147,7 +147,7 @@ Enter description here...
         .catch(error => document.getElementById("error").innerHTML = error.message);
       
   }
-
+  
   </script>
 <!-- </body> -->
 
