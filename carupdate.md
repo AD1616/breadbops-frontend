@@ -28,7 +28,7 @@ Enter description here...
 
 </div> 
   
-  <script src="carupdate.js"
+  <script src="carupdate.js">
     let authorized = false;
 
     const options = {
