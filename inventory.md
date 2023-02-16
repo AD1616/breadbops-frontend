@@ -19,7 +19,7 @@
                 <th scope="col">Model</th>
                 <th scope="col">Year</th>
                 <th scope="col">Description</th>
-                <th scope="col">Image</th>
+                <!-- <th scope="col">Image</th> -->
               </tr>
             </thead>
             <tbody id="table_body">

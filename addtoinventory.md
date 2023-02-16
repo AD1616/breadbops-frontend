@@ -19,8 +19,8 @@
 Enter description here...
 </textarea><br>
 
-<p><label for="img">Upload Image</label>
-<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
+<!-- <p><label for="img">Upload Image</label>
+<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br> -->
  
 
 
@@ -133,7 +133,7 @@ function input() {
   console.log(formBody);
   console.log(authorized);
   console.log(options);
-  
+
   fetch(url, options)
     .then(response => {
       if (!response.ok) {

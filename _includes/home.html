@@ -25,12 +25,13 @@
       <div class="dropdown-content">
           <a href="{{site.baseurl}}/signup">Sign Up</a>
           <a href="{{site.baseurl}}/login">Login/Logout</a>
+          <a href="{{site.baseurl}}/profile">Profile</a>
       </div>
     </div>
 
     <a style="float:left;" href="{{site.baseurl}}/">Home</a>
 
-    <div style="float:right;" class="dropdown">
+    <div id="admin" style="float:right;" class="dropdown">
         <button class="dropbtn"> Admin </button>
         <div class="dropdown-content">
         <a href="{{site.baseurl}}/addtoinventory">Add Car</a>
@@ -46,7 +47,7 @@
             <a href="{{site.baseurl}}/models"> Models </a>
             <a href="{{site.baseurl}}/search">Search</a>
             <a href="{{site.baseurl}}/carlist">Car List</a>
-            <a href="{{site.baseurl}}/reviews">Reviews</a>
+            <a href="{{site.baseurl}}/reviews">Give Feedback</a>
 
         </div>
     </div>
@@ -57,6 +58,57 @@
 <script>
 if (sessionStorage.getItem("username") == null) {
   sessionStorage.setItem("username", "Guest");
+}
+
+let authorized = false;
+
+const options = {
+    method: 'GET', 
+    mode: 'cors', 
+    cache: 'no-cache', 
+    credentials: 'include', 
+    headers: {
+        'Content-Type': 'application/json'
+        
+    },
+};
+
+
+
+const usernameHome = sessionStorage.getItem("username");
+const emailHome = sessionStorage.getItem("email");
+
+console.log(emailHome);
+
+if (emailHome == null || emailHome == "" || usernameHome == "Guest") {
+  document.getElementById("admin").style.display = "none";
+}
+
+else {
+  fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + emailHome, options)
+    .then(response => response.json())
+    .then(data => {
+      for (const item of data) {
+          console.log(item["name"]);
+          if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
+            authorized = true;
+          }
+      }
+
+      console.log(authorized);
+
+
+      if (authorized) {
+        document.getElementById("admin").style.display = "block";
+      }
+
+      else {
+        document.getElementById("admin").style.display = "none";
+      }
+      
+
+    })
+    .catch(error => console.error(error));
 }
 
 

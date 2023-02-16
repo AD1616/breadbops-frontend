@@ -16,14 +16,12 @@ fetch(url).then((data)=>{
     console.log(data);
     return data.json();
 }).then((objectData)=>{
-    console.log(objectData.data);
-    let carstring="";
-    objectData.map((values)=>{
-        carstring=`<div>
-        <label for="inputCarName">Name</label>
-        <input id="inputCarName" type="text" name="inputCarName" value=${values.name} /><br>
-</div>`
-
-    });
-    document.getElementById("body").innerHTML=carstring;
+    console.log(objectData.id);
+    console.log(objectData.name);
+    console.log(objectData.model);
+    document.getElementById('inputCarName').value=objectData.name;
+    document.getElementById('inputMake').value=objectData.make;
+    document.getElementById('inputModel').value=objectData.model;
+    document.getElementById('inputYear').value=objectData.year;
+    document.getElementById('inputCarDescription').value=objectData.description;
 })
