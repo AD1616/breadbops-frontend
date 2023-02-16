@@ -63,23 +63,23 @@ function getSpec() {
     // Fetch data from API
     fetch('https://breadbops.gq/api/specs/makes', options)
     .then(response => response.json())
-    .then(data => console.log(data))
-    //  {
+    .then(data => 
+     {
 
-// const table = document.getElementById('idk');
-//         while (table.rows.length > 1) {
-//           table.deleteRow(-1);
-//         }
-//         console.log(data);
-//         for (const car of data.Results) {
-//           const row = table.insertRow(-1);
-//           row.insertCell(-1).innerHTML = car.name;
-//           row.insertCell(-1).innerHTML = car.id;
-//         }
+const table = document.getElementById('idk');
+        while (table.rows.length > 1) {
+          table.deleteRow(-1);
+        }
+        console.log(data);
+        for (const car of data) {
+          const row = table.insertRow(-1);
+          row.insertCell(-1).innerHTML = car.name;
+          row.insertCell(-1).innerHTML = car.id;
+        }
 
-//         result.innerHTML =  yearparam + brandparam + data.Results;
+        result.innerHTML =  yearparam + brandparam + data;
 
-//     })
+    })
 }
 
 
