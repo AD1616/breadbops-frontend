@@ -28,7 +28,7 @@ Enter description here...
 
 </div> 
   
-  <script src="carupdate.js">
+  <script>
     let authorized = false;
 
     const options = {
@@ -147,7 +147,7 @@ Enter description here...
         .catch(error => document.getElementById("error").innerHTML = error.message);
       
   }
-
+  src="carupdate.js"
   </script>
 <!-- </body> -->
 
