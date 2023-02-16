@@ -55,8 +55,10 @@ fetch("https://breadbops.gq/api/reviewInventory/all").then((data)=>{
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
-    max-width:900px;
+    max-width:1200px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .styled-table thead tr {
