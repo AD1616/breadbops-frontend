@@ -89,7 +89,7 @@ else {
 
 function input() {
   const name = document.getElementById("inputCarName").value;
-  // const image = "Temp";
+  const image = "Temp";
   const description = document.getElementById("inputCarDescription").value;
   const make = document.getElementById("inputMake").value;
   const model = document.getElementById("inputModel").value;
@@ -99,7 +99,7 @@ function input() {
 
   var details = {
       'name': name,
-      // 'imageLink': image,
+      'imageLink': image,
       'description': description,
       'make': make,
       'model': model,
