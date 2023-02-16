@@ -36,7 +36,7 @@ let table = document.getElementById("idk");
 function getModelid(){
     let inputModelid = document.getElementById("inputModelid").value;
     return inputModelid;
-}y
+}
 function getGenerationid(){
     let inputGeneration = document.getElementById("inputGeneration").value;
     return inputGeneration;
@@ -228,12 +228,67 @@ function getSpec(specparam) {
       console.log(txt);
       
 document.getElementById("demo").innerHTML = data + txt;
+document.getElementById("body").innerHTML = data.bodyType;
 document.getElementById("json").innerHTML = JSON.stringify(data, null,'\t');
+
 
       })
 
 }
 
+function getIntegra() {
+     const options = {
+      method: 'GET', 
+      mode: 'cors', 
+      cache: 'no-cache', 
+      credentials: 'include', 
+      headers: {
+          'Content-Type': 'application/json'
+          
+      },
+  };
+    result = document.getElementById("getModels");
+    // console.log(yearparam);
+    // console.log(brandparam);
+    // Fetch data from API
+    fetch('http://localhost:8196/api/specs/integra/1', options)
+    .then(response => response.json())
+    .then(data => 
+    {
+
+      let txt = "";
+      for (let x in data) 
+      {
+        txt += data[x] + " ";
+      };
+      console.log(data);
+      console.log(txt);
+      
+document.getElementById("demo").innerHTML = data + txt;
+document.getElementById("body").innerHTML = data.bodyType;
+document.getElementById("json").innerHTML = JSON.stringify(data, null,'\t');
+
+const table = document.getElementById('idk');
+        while (table.rows.length > 1) {
+          table.deleteRow(-1);
+        }
+        console.log(data);
+        for (const car of Object.keys(data)) {
+              var iteration = data[car];
+                  console.log(car, iteration);
+document.getElementById("car").innerHTML = car;
+document.getElementById("iteration").innerHTML = iteration;
+
+
+
+        }
+
+        result.innerHTML =  yearparam + brandparam + data.Results;
+
+    }
+      )
+
+}
 </script>
 ### Car Models for Specific Year
 <a href="{{site.baseurl}}/spec">reset</a>
@@ -249,8 +304,28 @@ document.getElementById("json").innerHTML = JSON.stringify(data, null,'\t');
 <button class="button" id= "button" onclick="getGeneration(getGenerationid())">Get Generations</button>
 <button class="button" id= "button" onclick="getTrim(getTrimid())">Get Trims</button>
 <button class="button" id= "button" onclick="getSpec(getSpecs())">Get Specs</button>
+<button class="button" id= "button" onclick="getIntegra()">Get Integra</button>
+
+<table>
+  <thead>
+  <tr>
+    <th>Country</th>
+    <th>All-time Cases</th>
+    <th>Recorded Deaths</th>
+    <th>Active Cases</th>
+  </tr>
+  </thead>
+  <tbody id="result">
+    <!-- generated rows -->
+  </tbody>
+</table>
+
 <p id="demo">spec placeholder</p>
+<p id="body">body placeholder</p>
+<p id="car">id thing placeholder</p>
+<p id="iteration">other placeholder</p>
 <p id="json">json placeholder</p>
+<p id="bson">bson placeholder</p>
 
 
 <table id="idk"></table>
@@ -266,4 +341,6 @@ input.addEventListener("keypress", function(event) {
     document.getElementById("button").click();
   }
 });
+
+
 </script>
