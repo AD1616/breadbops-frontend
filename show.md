@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="styled-table">
     <thead class="table-dark">
         <tr>
         <th scope="col">Id</th>
@@ -55,6 +55,7 @@ fetch("https://breadbops.gq/api/reviewInventory/all").then((data)=>{
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
+    max-width:900px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
