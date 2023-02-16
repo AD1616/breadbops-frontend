@@ -26,32 +26,42 @@ const options = {
 
 const getRolesURL = "https://breadbops.gq/api/person/getPersonRoles?email=";
 
-fetch(getRolesURL + email, options)
-.then(response => response.json())
-.then(data => {
-    for (const item of data) {
-        console.log(item["name"]);
-        if (item["name"] == "ROLE_ADMIN") {
-            roles += "ROLE_ADMIN";
+if (name != "Guest") {
+    fetch(getRolesURL + email, options)
+    .then(response => response.json())
+    .then(data => {
+        for (const item of data) {
+            console.log(item["name"]);
+            if (item["name"] == "ROLE_ADMIN") {
+                roles += "ROLE_ADMIN";
+            }
+
+            else if (item["name"] == "ROLE_DEALERSHIP") {
+                roles += "ROLE_DEALERSHIP";
+            }
+
+            else if (item["name"] == "ROLE_USER") {
+                roles += "ROLE_USER";
+            }
+        
+        document.getElementById("name").innerHTML = "Name: " + name;
+        document.getElementById("email").innerHTML = "Email: " + email;
+        document.getElementById("roles").innerHTML = "Role: " + roles;
+
+
         }
 
-        else if (item["name"] == "ROLE_DEALERSHIP") {
-            roles += "ROLE_DEALERSHIP";
-        }
+    })
+    .catch(error => console.error(error));
+}
 
-        else if (item["name"] == "ROLE_USER") {
-            roles += "ROLE_USER";
-        }
-
-
-    }
-
-})
-.catch(error => console.error(error));
+else {
+    document.getElementById("name").innerHTML = "You are logged in as a Guest. Sign up and login to view your profile!";
+    document.getElementById("email").innerHTML = "";
+    document.getElementById("roles").innerHTML = "";
+}
 
 
-document.getElementById("name").innerHTML = "Name: " + name;
-document.getElementById("email").innerHTML = "Email: " + email;
-document.getElementById("roles").innerHTML = "Role: " + roles;
+
 
 </script>   

@@ -88,13 +88,13 @@ const username = sessionStorage.getItem("username");
 const email = sessionStorage.getItem("email");
 
 if (email == null || email == "" || username == "Guest") {
-  document.getElementById("loginForm").style.visibility = "visible";
-  document.getElementById("logoutButton").style.visibility = "hidden";
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("logoutButton").style.display = "none";
 }
 
 else {
-  document.getElementById("loginForm").style.visibility = "hidden";
-  document.getElementById("logoutButton").style.visibility = "visible";
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("logoutButton").style.display = "block";
 }
 
 function login() {
