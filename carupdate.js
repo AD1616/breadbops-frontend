@@ -16,14 +16,6 @@ fetch(url).then((data)=>{
     console.log(data);
     return data.json();
 }).then((objectData)=>{
-    console.log(objectData.data);
-    let carstring="";
-    objectData.map((values)=>{
-        carstring=`<div>
-        <label for="inputCarName">Name</label>
-        <input id="inputCarName" type="text" name="inputCarName" value=${values.name} /><br>
-</div>`
-
-    });
-    document.getElementById("body").innerHTML=carstring;
+    console.log(objectData.name);
+    document.getElementById('inputCarName').innerHTML=objectData.name;
 })

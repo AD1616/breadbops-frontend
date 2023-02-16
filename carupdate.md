@@ -4,42 +4,37 @@
     width:100px;
     }
 </style>
-<script>
-  function carupdate(){
-    var myHeaders = new Headers();
-myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
 
-// var carId = GetURLParameter('carid');
-let carParams = new URLSearchParams(window.location.search)
-let carId = carParams.get('carid')
-
-url = "https://breadbops.gq/api/carInventory/" + carId;
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-fetch(url).then((data)=>{
-    console.log(data);
-    return data.json();
-}).then((objectData)=>{
-    console.log(objectData.data);
-    let carstring="";
-    objectData.map((values)=>{
-        carstring=`<div>
-        <label for="inputCarName">Name</label>
-        <input id="inputCarName" type="text" name="inputCarName" value=${values.name} /><br>
-</div>`
-
-    });
-    document.getElementById("body").innerHTML=carstring;
-})
-  }
-  </script>
 </head>
-<body onload="carupdate()">
+<body">
+<h1 class="heading">Update Car</h1>
+  <div id="inputs">
+    <label for="inputCarName">Name</label>
+    <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
 
+    <label for="inputMake">Make</label>
+    <input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
+
+    <label for="inputModel">Model</label>
+    <input id="inputModel" type="text" name="inputModel" autocomplete="off" /><br>
+
+    <label for="inputYear">Year</label>
+    <input id="inputYear" type="number" name="inputYear" autocomplete="off" /><br>
+
+    <label for="inputCarDescription">Description</label>
+    <textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
+    Enter description here...
+    </textarea><br>
+
+    <p><label for="img">Upload Image</label>
+    <input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br>
+    
+
+
+    <button class="button1" onclick="input()">Upload Car</button>
+    </div>
+  </div>
+  <script src="carupdate.js"></script>
 </body>
 
 
@@ -61,6 +56,10 @@ input {
 
 label {
     font-size: 3em;
+}
+.heading{
+  text-align: center;
+  font-size: 3rem;
 }
 
 .button {
