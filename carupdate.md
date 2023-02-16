@@ -32,7 +32,7 @@
     
 
 
-    <button class="button1" onclick="input()">Upload Car</button>
+    <button class="button1" onclick="upcar()">Upload Car</button>
     </div>
   
   <script src="carupdate.js">
@@ -91,66 +91,68 @@
     }
 
 
-    function input() {
-    const name = document.getElementById("inputCarName").value;
-    const image = "Temp";
-    const description = document.getElementById("inputCarDescription").value;
-    const make = document.getElementById("inputMake").value;
-    const model = document.getElementById("inputModel").value;
-    const year = document.getElementById("inputYear").value;
+    function upcar() {
+      console.log("in upcar");
+      const name = document.getElementById("inputCarName").value;
+      const image = "Temp";
+      const description = document.getElementById("inputCarDescription").value;
+      const make = document.getElementById("inputMake").value;
+      const model = document.getElementById("inputModel").value;
+      const year = document.getElementById("inputYear").value;
 
-    const url = "https://breadbops.gq/api/carInventory/updateCar/"+carId;
+      const url = "https://breadbops.gq/api/carInventory/updateCar/"+carId;
 
-    var details = {
-        'name': name,
-        'imageLink': image,
-        'description': description,
-        'make': make,
-        'model': model,
-        'year': year};
+      var details = {
+          'name': name,
+          'imageLink': image,
+          'description': description,
+          'make': make,
+          'model': model,
+          'year': year};
 
-    var formBody = [];
-    for (var property in details) {
-      var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(details[property]);
-      formBody.push(encodedKey + "=" + encodedValue);
-    }
-    formBody = formBody.join("&");
+      var formBody = [];
+      for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+      }
+      formBody = formBody.join("&");
 
-    // console.log(url);
-    // console.log(formBody);
-    // console.log(authorized);
+      console.log(url);
+      console.log(details);
+      console.log(formBody);
+      console.log(authorized);
 
-    const options = {
-      method: 'POST', 
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'include', // include, *same-origin, omit
-      headers: {
-        // 'Content-Type': 'application/json'
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: formBody
-    };
+      const options = {
+        method: 'POST', 
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'include', // include, *same-origin, omit
+        headers: {
+          // 'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: formBody
+      };
 
-    console.log(url);
-    console.log(formBody);
-    console.log(authorized);
-    console.log(options);
+      console.log(url);
+      console.log(formBody);
+      console.log(authorized);
+      console.log(options);
 
-    fetch(url, options)
-      .then(response => {
-        if (!response.ok) {
-          if (response.status === 401) {
-            throw new Error("You don't have permission");
-          } else {
-            throw new Error("Something went wrong");
+      fetch(url, options)
+        .then(response => {
+          if (!response.ok) {
+            if (response.status === 401) {
+              throw new Error("You don't have permission");
+            } else {
+              throw new Error("Something went wrong");
+            }
           }
-        }
-      })
-      .then(result => console.log(result))
-      .catch(error => document.getElementById("error").innerHTML = error.message);
-    
+        })
+        .then(result => console.log(result))
+        .catch(error => document.getElementById("error").innerHTML = error.message);
+      
   }
 
   </script>
