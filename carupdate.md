@@ -7,6 +7,7 @@
 
 </head>
 <body>
+<h1 id="error"> </h1>
 <h1 class="heading">Update Car</h1>
   <div id="inputs">
     <label for="inputCarName">Name</label>
@@ -34,8 +35,7 @@
     <button class="button1" onclick="input()">Upload Car</button>
     </div>
   
-  <script src="carupdate.js"></script>
-  <script>
+  <script src="carupdate.js">
     let authorized = false;
 
     const options = {
@@ -122,7 +122,7 @@
     // console.log(authorized);
 
     const options = {
-      method: 'put', 
+      method: 'post', 
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'include', // include, *same-origin, omit
