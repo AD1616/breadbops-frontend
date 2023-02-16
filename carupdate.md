@@ -10,7 +10,7 @@
 <h1 class="heading">Update Car</h1>
   <div id="inputs">
     <label for="inputCarName">Name</label>
-    <input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
+    <input id="inputCarName" type="text" name="inputCarName"/><br>
 
     <label for="inputMake">Make</label>
     <input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
