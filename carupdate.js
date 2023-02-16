@@ -16,6 +16,8 @@ fetch(url).then((data)=>{
     console.log(data);
     return data.json();
 }).then((objectData)=>{
+    console.log(objectData.id);
     console.log(objectData.name);
-    document.getElementById('inputCarName').innerText=objectData.name;
+    console.log(objectData.model);
+    document.getElementById('inputCarName').value=objectData.name;
 })
