@@ -1,10 +1,10 @@
 <body>
-  <table id="filters">
-    <tr>
+  <!-- <table id="filters"> -->
+    <!-- <tr>
       <th>Model Year</th>
       <th>Price</th>
       <th>State</th>
-    </tr>
+    </tr> -->
     <!-- <form action="#">
       <tr>
         <td>
@@ -35,8 +35,8 @@
         </td>
       </tr>
       <input type="submit" value="Apply Filters">
-    </form>
-  </table> -->
+    </form> -->
+  <!-- </table> -->
 
   <div id="cover">
     <form method="get">
