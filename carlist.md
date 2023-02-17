@@ -6,7 +6,7 @@
 
 <h1 id = "loggedIn"> </h1>
 
-<table class="table table-bordered">
+<table id="fullTable" class="table table-bordered">
     <thead class="table-dark">
       <tr>
         <th scope="col">Name</th> 
@@ -46,6 +46,7 @@ if (email == null || email == "" || name == "Guest") {
   document.getElementById("car-input").style.visibility = "hidden";
   document.getElementById("car-input-label").style.visibility = "hidden";
   document.getElementById("list").style.visibility = "hidden";
+  document.getElementById("fullTable").style.visibility = "hidden";
   document.getElementById("loggedIn").innerHTML = "Sign in to save a wish list.";
 
 }
@@ -56,6 +57,7 @@ else {
   document.getElementById("car-input-label").style.visibility = "visible";
   document.getElementById("car-input").style.visibility = "visible";
   document.getElementById("list").style.visibility = "visible";
+  document.getElementById("fullTable").style.visibility = "visible";
 }
 
 // Called to update the CAR LIST
