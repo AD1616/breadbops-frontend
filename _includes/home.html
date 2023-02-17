@@ -149,11 +149,13 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+  
 }
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #ad1616;
+  transition-duration: 0.25s;
+  color: #ad1616;
 }
 
 /* Dropdown content (hidden by default) */
@@ -170,7 +172,7 @@ document.getElementById("user").innerHTML = "Hello " + sessionStorage.getItem("u
 /* Links inside the dropdown */
 .dropdown-content a {
   font-size: 25px;
-  outline: 1px solid black;
+  outline: 1px solid rgb(195, 193, 193);
   float: none;
   color: black;
   padding: 12px 10px;
