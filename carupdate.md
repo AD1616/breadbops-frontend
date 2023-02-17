@@ -1,7 +1,8 @@
 
 <script>
-let carParams = new URLSearchParams(window.location.search)
-let carId = carParams.get('carid')
+let carParams = new URLSearchParams(window.location.search);
+let carId = carParams.get('carid');
+console.log(carId);
 function input() {
       console.log("in input");
       const name = document.getElementById("inputCarName").value;
