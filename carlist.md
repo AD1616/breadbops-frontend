@@ -100,7 +100,7 @@ function getCars() {
       objectData.map((values)=>{
           tableData+=`<tr>
           <td>${values.name}</td>
-          <td><a href=https://breadbops.gq/api/person/deleteCar/?email=${email}&carName=${values.name} class="btn btn-danger btn-sm">Delete</a></td>
+          <td><a href="https://breadbops.gq/api/person/deleteCar/?email=${encodeURIComponent(email)}&carName=${encodeURIComponent(values.name)}" class="btn btn-danger btn-sm">Delete</a></td>
           </tr>`;
       });
       document.getElementById("table_body").innerHTML=tableData;
