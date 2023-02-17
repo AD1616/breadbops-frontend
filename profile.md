@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2 id="title" style="text-align:center">User Profile Card</h2>
+<h2 id="title" style="text-align:center"></h2>
 
 <div class="card">
   <h1 id="name"></h1>

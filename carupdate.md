@@ -94,7 +94,7 @@ Enter description here...
  
 
 
-<button id="button1" class="button1" onclick="input()">Upload Car</button>
+<button id="button1" class="button1" onclick="input()">Update Car</button>
 
 </div> 
   
