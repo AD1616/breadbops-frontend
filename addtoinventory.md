@@ -30,64 +30,65 @@ Enter description here...
 
 <script>
 
-let authorized = false;
+// let authorized = false;
 
-const options = {
-    method: 'GET', 
-    mode: 'cors', 
-    cache: 'no-cache', 
-    credentials: 'include', 
-    headers: {
-        'Content-Type': 'application/json'
+// const options = {
+//     method: 'GET', 
+//     mode: 'cors', 
+//     cache: 'no-cache', 
+//     credentials: 'include', 
+//     headers: {
+//         'Content-Type': 'application/json'
         
-    },
-};
+//     },
+// };
 
 
 
-const username = sessionStorage.getItem("username");
-const email = sessionStorage.getItem("email");
+// const username = sessionStorage.getItem("username");
+// const email = sessionStorage.getItem("email");
 
-console.log(email);
+// console.log(email);
 
-if (email == null || email == "" || username == "Guest") {
-  document.getElementById("inputs").style.visibility = "hidden";
-  document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
-}
+// if (email == null || email == "" || username == "Guest") {
+//   document.getElementById("inputs").style.visibility = "hidden";
+//   document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
+// }
 
-else {
-  fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
-    .then(response => response.json())
-    .then(data => {
-      for (const item of data) {
-          console.log(item["name"]);
-          if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
-            authorized = true;
-          }
-      }
+// else {
+//   fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
+//     .then(response => response.json())
+//     .then(data => {
+//       for (const item of data) {
+//           console.log(item["name"]);
+//           if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
+//             authorized = true;
+//           }
+//       }
 
-      console.log(authorized);
+//       console.log(authorized);
 
 
-      if (authorized) {
-        document.getElementById("inputs").style.visibility = "visible";
-        document.getElementById("error").innerHTML = "Add to inventory.";
-      }
+//       if (authorized) {
+//         document.getElementById("inputs").style.visibility = "visible";
+//         document.getElementById("error").innerHTML = "Add to inventory.";
+//       }
 
-      else {
-        document.getElementById("inputs").style.visibility = "hidden";
-        document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
-      }
+//       else {
+//         document.getElementById("inputs").style.visibility = "hidden";
+//         document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
+//       }
       
 
-    })
-    .catch(error => console.error(error));
-}
+//     })
+//     .catch(error => console.error(error));
+// }
 
 
 
 
 function input() {
+  console.log("in input");
   const name = document.getElementById("inputCarName").value;
   const image = "Temp";
   const description = document.getElementById("inputCarDescription").value;
@@ -113,9 +114,9 @@ function input() {
   }
   formBody = formBody.join("&");
 
-  // console.log(url);
-  // console.log(formBody);
-  // console.log(authorized);
+  console.log(url);
+  console.log(formBody);
+  console.log(authorized);
 
   const options = {
     method: 'POST', 

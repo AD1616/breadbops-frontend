@@ -306,26 +306,13 @@ document.getElementById("iteration").innerHTML = iteration;
 <button class="button" id= "button" onclick="getSpec(getSpecs())">Get Specs</button>
 <button class="button" id= "button" onclick="getIntegra()">Get Integra</button>
 
-<table>
-  <thead>
-  <tr>
-    <th>Country</th>
-    <th>All-time Cases</th>
-    <th>Recorded Deaths</th>
-    <th>Active Cases</th>
-  </tr>
-  </thead>
-  <tbody id="result">
-    <!-- generated rows -->
-  </tbody>
-</table>
+
 
 <p id="demo">spec placeholder</p>
 <p id="body">body placeholder</p>
-<p id="car">id thing placeholder</p>
-<p id="iteration">other placeholder</p>
+<!-- <p id="car">id thing placeholder</p> -->
+<!-- <p id="iteration">other placeholder</p> -->
 <p id="json">json placeholder</p>
-<p id="bson">bson placeholder</p>
 
 
 <table id="idk"></table>
