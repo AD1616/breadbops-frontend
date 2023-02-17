@@ -64,6 +64,7 @@ if (name != "Guest") {
                 roles += "ROLE_USER";
             }
         
+        document.getElementById("title").innerHTML = "";
         document.getElementById("name").innerHTML = "" + name;
         document.getElementById("email").innerHTML = "Contact via: " + email;
         document.getElementById("roles").innerHTML = "" + roles;
