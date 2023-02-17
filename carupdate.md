@@ -1,93 +1,8 @@
-<h1 id="error"> </h1>
 
-<div id="inputs"> 
-
-<label for="inputCarName">Name</label>
-<input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
-
-<label for="inputMake">Make</label>
-<input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
-
-<label for="inputModel">Model</label>
-<input id="inputModel" type="text" name="inputModel" autocomplete="off" /><br>
-
-<label for="inputYear">Year</label>
-<input id="inputYear" type="number" name="inputYear" autocomplete="off" /><br>
-
-<label for="inputCarDescription">Description</label>
-<textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
-Enter description here...
-</textarea><br>
-
-<!-- <p><label for="img">Upload Image</label>
-<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br> -->
- 
-
-
-<button id="button1" class="button1">Upload Car</button>
-
-</div> 
-  
-  <script src="carupdate.js">
-    document.getElementById ("button1").addEventListener ("click", input, false);
- 
-
-    // let authorized = false;
-
-    // const options = {
-    //     method: 'GET', 
-    //     mode: 'cors', 
-    //     cache: 'no-cache', 
-    //     credentials: 'include', 
-    //     headers: {
-    //         'Content-Type': 'application/json'
-            
-    //     },
-    // };
-
-
-
-    // const username = sessionStorage.getItem("username");
-    // const email = sessionStorage.getItem("email");
-
-    // console.log(email);
-
-    // if (email == null || email == "" || username == "Guest") {
-    //   document.getElementById("inputs").style.visibility = "hidden";
-    //   document.getElementById("error").innerHTML = "Sign in as admin to add to the inventory.";
-    // }
-
-    // else {
-    //   fetch('https://breadbops.gq/api/person/getPersonRoles?email=' + email, options)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       for (const item of data) {
-    //           console.log(item["name"]);
-    //           if (item["name"] == "ROLE_ADMIN" || item["name"] == "ROLE_DEALERSHIP") {
-    //             authorized = true;
-    //           }
-    //       }
-
-    //       console.log(authorized);
-
-
-    //       if (authorized) {
-    //         document.getElementById("inputs").style.visibility = "visible";
-    //         document.getElementById("error").innerHTML = "Add to inventory.";
-    //       }
-
-    //       else {
-    //         document.getElementById("inputs").style.visibility = "hidden";
-    //         document.getElementById("error").innerHTML = "You don't have permission to add a car. Contact the Breadbops Team if you think this is a mistake.";
-    //       }
-          
-
-    //     })
-    //     .catch(error => console.error(error));
-    // }
-
-
-    function input() {
+<script>
+let carParams = new URLSearchParams(window.location.search)
+let carId = carParams.get('carid')
+function input() {
       console.log("in input");
       const name = document.getElementById("inputCarName").value;
       const image = "Temp";
@@ -150,6 +65,44 @@ Enter description here...
         .catch(error => document.getElementById("error").innerHTML = error.message);
       
   }
+</script>
+
+<h1 id="error"> </h1>
+
+<div id="inputs"> 
+
+<label for="inputCarName">Name</label>
+<input id="inputCarName" type="text" name="inputCarName" autocomplete="off" /><br>
+
+<label for="inputMake">Make</label>
+<input id="inputMake" type="text" name="inputMake" autocomplete="off" /><br>
+
+<label for="inputModel">Model</label>
+<input id="inputModel" type="text" name="inputModel" autocomplete="off" /><br>
+
+<label for="inputYear">Year</label>
+<input id="inputYear" type="number" name="inputYear" autocomplete="off" /><br>
+
+<label for="inputCarDescription">Description</label>
+<textarea id="inputCarDescription" name="inputCarDescription" rows="4" cols="50">
+Enter description here...
+</textarea><br>
+
+<!-- <p><label for="img">Upload Image</label>
+<input id="inputCarImage" type="file" id="img" name="inputCarImage" accept="image/*"></p><br> -->
+ 
+
+
+<button id="button1" class="button1" onclick="input()">Upload Car</button>
+
+</div> 
+  
+  <script src="carupdate.js">
+    // document.getElementById ("button1").addEventListener ("click", input, false);
+ 
+
+
+    
 
   
   
