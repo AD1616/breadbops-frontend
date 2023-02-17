@@ -6,7 +6,23 @@
 
 <h1 id = "loggedIn"> </h1>
 
-<div id = "json-data"> </div>
+<table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="row">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Year</th>
+        <th scope="col">Description</th>
+        <!-- <th scope="col">Image</th> -->
+      </tr>
+    </thead>
+    <tbody id="table_body">
+    </tbody>
+</table>
+
+<!-- <div id = "json-data"> </div> -->
 
 <!-- <label for="email-input">Enter Your Email to see your car list</label>
 <input name="email-input" type="text" id="email-input"> -->
@@ -67,17 +83,34 @@ function getCars() {
 
   // Generates car list for particular email
 
-  fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options)
-    .then(response => response.json())
-    .then(data => {
+  // fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     let items = '';
+  //     for (const item of data) {
+  //         items += `<li>${item.name}</li>`;
+  //     }
+  //     document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
+  //   })
+  //   .catch(error => console.error(error));
+
+
+
+  fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options).then((data)=>{
       console.log(data);
-      let items = '';
-      for (const item of data) {
-          items += `<li>${item.name}</li>`;
-      }
-      document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
-    })
-    .catch(error => console.error(error));
+      return data.json();
+  }).then((objectData)=>{
+      console.log(objectData[0].name);
+      let tableData="";
+      objectData.map((values)=>{
+          tableData+=`<tr>
+          <td>${values.name}</td>
+          <td><a href=https://breadbops.gq/api/person/deleteCar/?email=${email}&carName=${values.name} class="btn btn-danger btn-sm">Delete</a></td>
+          </tr>`;
+      });
+      document.getElementById("table_body").innerHTML=tableData;
+  })
   
 
 }
