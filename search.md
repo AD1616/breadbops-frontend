@@ -180,7 +180,6 @@ function search_car() {
 
 
 
-
 #list{
   position: relative;
   top: 100px; 

@@ -39,6 +39,7 @@ fetch("https://breadbops.gq/api/reviewInventory/all").then((data)=>{
         <td>${values.phone}</td>
         <td>${values.stars}</td>
         <td>${values.comments}</td>
+        <td><a href=https://breadbops.gq/api/reviewInventory/delete/${values.id} class="btn btn-danger btn-sm">Delete</a></td>
       </tr>`;
     });
     document.getElementById("table_body").innerHTML=tableData;
