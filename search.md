@@ -1,11 +1,11 @@
 <body>
-  <!-- <table id="filters"> -->
-    <!-- <tr>
+  <table id="filters">
+    <tr>
       <th>Model Year</th>
       <th>Price</th>
       <th>State</th>
-    </tr> -->
-    <!-- <form action="#">
+    </tr>
+    <form action="#">
       <tr>
         <td>
           <input type="checkbox" id="year1" name="year1" value="year1">
@@ -35,8 +35,8 @@
         </td>
       </tr>
       <input type="submit" value="Apply Filters">
-    </form> -->
-  <!-- </table> -->
+    </form>
+  </table>
 
   <div id="cover">
     <form method="get">
