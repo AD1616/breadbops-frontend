@@ -24,12 +24,14 @@ Enter description here...
  
 
 
-<button class="button1" onclick="input()">Upload Car</button>
+<button id="button1" class="button1">Upload Car</button>
 
 </div> 
   
-  <script>
-    //  <script src="carupdate.js">
+  <script src="carupdate.js">
+    document.getElementById ("button1").addEventListener ("click", input, false);
+ 
+
     // let authorized = false;
 
     // const options = {
@@ -149,34 +151,7 @@ Enter description here...
       
   }
 
-  var myHeaders = new Headers();
-  myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
-
-  // var carId = GetURLParameter('carid');
-  let carParams = new URLSearchParams(window.location.search)
-  let carId = carParams.get('carid')
-
-  url = "https://breadbops.gq/api/carInventory/" + carId;
-  var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };
-
-  fetch(url).then((data)=>{
-      console.log(data);
-      return data.json();
-  }).then((objectData)=>{
-      console.log(objectData.id);
-      console.log(objectData.name);
-      console.log(objectData.model);
-      document.getElementById('inputCarName').value=objectData.name;
-      document.getElementById('inputMake').value=objectData.make;
-      document.getElementById('inputModel').value=objectData.model;
-      document.getElementById('inputYear').value=objectData.year;
-      document.getElementById('inputCarDescription').value=objectData.description;
-  })
-
+  
   
   </script>
 <!-- </body> -->
