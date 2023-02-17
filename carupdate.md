@@ -100,12 +100,6 @@ Enter description here...
   
   <script src="carupdate.js">
     // document.getElementById ("button1").addEventListener ("click", input, false);
- 
-
-
-    
-
-  
   
   </script>
 <!-- </body> -->

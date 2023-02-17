@@ -7,6 +7,10 @@ var requestOptions = {
   redirect: 'follow'
 };
 
+// fetching the data in json format
+// converting to object format: json -> objectData
+// recursively mapping data
+// table data mapping the values
 fetch("https://breadbops.gq/api/carInventory/all").then((data)=>{
     console.log(data);
     return data.json();
