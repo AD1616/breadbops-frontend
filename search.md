@@ -1,5 +1,5 @@
 <body>
-  <table id="filters">
+  <!-- <table id="filters">
     <tr>
       <th>Model Year</th>
       <th>Price</th>
@@ -36,7 +36,7 @@
       </tr>
       <input type="submit" value="Apply Filters">
     </form>
-  </table>
+  </table> -->
 
   <div id="cover">
     <form method="get">
