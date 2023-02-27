@@ -1,4 +1,5 @@
 <table class="styled-table">
+<!-- Input fields and columns -->
     <thead class="table-dark">
         <tr>
         <th scope="col">Id</th>
@@ -16,15 +17,18 @@
 
 <script>
 
+// Headers and cookies
 var myHeaders = new Headers();
 myHeaders.append("Cookie", "JSESSIONID=50444A2204FEABB3D34244D4E48F50B7");
 
+// Get method
 var requestOptions = {
   method: 'GET',
   headers: myHeaders,
   redirect: 'follow'
 };
 
+// Fetching from backend
 fetch("https://breadbops.gq/api/reviewInventory/all").then((data)=>{
     console.log(data);
     return data.json();

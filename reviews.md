@@ -348,6 +348,7 @@ Gama Motors is dedicated to delivering the best service to our customers.
     </div>
   </div> -->
 
+<!-- Prompt user to input phone number -->
   <div class="form-group">
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
@@ -359,7 +360,7 @@ Gama Motors is dedicated to delivering the best service to our customers.
 
   <div class="pinfo">Rate our Overall Services</div>
 
-
+<!-- Form to prompt user to input stars -->
   <div class="form-group">
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
@@ -394,11 +395,13 @@ Gama Motors is dedicated to delivering the best service to our customers.
 
 <script>
 
+// Gets and stores user and email
 const name = sessionStorage.getItem("username");
 const email = sessionStorage.getItem("email");
 
 console.log(email);
 
+// Checks for user status
 if (email == null || email == "" || name == "Guest") {
   document.getElementById("reviewInputs").style.visibility = "hidden";
   document.getElementById("fh2").innerHTML = "Sign in to leave a review for Gama Motors!";
@@ -409,6 +412,7 @@ else {
   document.getElementById("fh2").innerHTML = "Leave Gama Motors A Review Or Write A Comment";
 }
 
+// Connects inputs and stores as variables
 function connect(){
   // const name = document.getElementById('name').value;
   // const email = document.getElementById('email').value;
@@ -477,6 +481,7 @@ function connect(){
 
   console.log(formBody);
   
+  // Post method
   const options = {
     method: 'POST', 
     mode: 'cors', // no-cors, *cors, same-origin
@@ -489,6 +494,7 @@ function connect(){
     body: formBody
   };
 
+// Get method
   fetch(url, options)
     .then(response => console.log(response.text()))
     .then(result => console.log(result))
