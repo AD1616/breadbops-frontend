@@ -6,7 +6,17 @@
 
 <h1 id = "loggedIn"> </h1>
 
-<div id = "json-data"> </div>
+<table id="fullTable" class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th> 
+      </tr>
+    </thead>
+    <tbody id="table_body">
+    </tbody>
+</table>
+
+<!-- <div id = "json-data"> </div> -->
 
 <!-- <label for="email-input">Enter Your Email to see your car list</label>
 <input name="email-input" type="text" id="email-input"> -->
@@ -36,6 +46,7 @@ if (email == null || email == "" || name == "Guest") {
   document.getElementById("car-input").style.visibility = "hidden";
   document.getElementById("car-input-label").style.visibility = "hidden";
   document.getElementById("list").style.visibility = "hidden";
+  document.getElementById("fullTable").style.visibility = "hidden";
   document.getElementById("loggedIn").innerHTML = "Sign in to save a wish list.";
 
 }
@@ -46,6 +57,7 @@ else {
   document.getElementById("car-input-label").style.visibility = "visible";
   document.getElementById("car-input").style.visibility = "visible";
   document.getElementById("list").style.visibility = "visible";
+  document.getElementById("fullTable").style.visibility = "visible";
 }
 
 // Called to update the CAR LIST
@@ -67,17 +79,34 @@ function getCars() {
 
   // Generates car list for particular email
 
-  fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options)
-    .then(response => response.json())
-    .then(data => {
+  // fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data);
+  //     let items = '';
+  //     for (const item of data) {
+  //         items += `<li>${item.name}</li>`;
+  //     }
+  //     document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
+  //   })
+  //   .catch(error => console.error(error));
+
+
+
+  fetch('https://breadbops.gq/api/person/getPersonCarList?email=' + email, options).then((data)=>{
       console.log(data);
-      let items = '';
-      for (const item of data) {
-          items += `<li>${item.name}</li>`;
-      }
-      document.getElementById('json-data').innerHTML = `<ul>${items}</ul>`;
-    })
-    .catch(error => console.error(error));
+      return data.json();
+  }).then((objectData)=>{
+      console.log(objectData[0].name);
+      let tableData="";
+      objectData.map((values)=>{
+          tableData+=`<tr>
+          <td>${values.name}</td>
+          <td><a href="https://breadbops.gq/api/person/deleteCar/?email=${encodeURIComponent(email)}&carName=${encodeURIComponent(values.name)}" class="btn btn-danger btn-sm">Delete</a></td>
+          </tr>`;
+      });
+      document.getElementById("table_body").innerHTML=tableData;
+  })
   
 
 }

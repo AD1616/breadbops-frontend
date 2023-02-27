@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2 id="title" style="text-align:center">User Profile Card</h2>
+<h2 id="title" style="text-align:center"></h2>
 
 <div class="card">
   <h1 id="name"></h1>
@@ -64,6 +64,7 @@ if (name != "Guest") {
                 roles += "ROLE_USER";
             }
         
+        document.getElementById("title").innerHTML = "";
         document.getElementById("name").innerHTML = "" + name;
         document.getElementById("email").innerHTML = "Contact via: " + email;
         document.getElementById("roles").innerHTML = "" + roles;
