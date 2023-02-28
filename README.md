@@ -14,3 +14,6 @@ Features:
 - Reviews/displaying reviews
 - Car specs
 - Car inventory
+
+![image](https://user-images.githubusercontent.com/28553165/221941835-d4912c63-1652-44d5-aa37-93785a4f66a8.png)
+
